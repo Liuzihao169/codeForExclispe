@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+	<!-- 主配置 -->
+	<!-- 标识方式package  -->
+	<!-- action name="指定一个命名空间访问的时候就  /packagename/actionname" -->
+		
+		<!-- 转发 -->
+		<constant name="struts.devMode" value="true"></constant>
+		<package name="hello" namespace="/"  extends="struts-default" > 
+			<action name="demo1Action" class="com.heima.a_result.Demo1Action" method="hello">
+				<result name="success" type="dispatcher">/hello.jsp</result>
+			</action>
+		
+		<!-- 重定向 -->
+			<action name="demo2Action" class="com.heima.a_result.Demo2Action" method="hello">
+				<result name="success" type="redirect">/hello.jsp</result>
+			</action>
+         <!-- 转发到action -->
+			<action name="demo3Action" class="com.heima.a_result.Demo3Action" method="hello">
+				<result name="success" type="chain">
+					<param name="actionName">demo1Action</param>
+                    <param name="namespace">/</param>
+				</result>
+			</action>
+			 <!-- 重定向到action --> 
+			<action name="demo4Action" class="com.heima.a_result.Demo4Action" method="hello">
+				<result name="success" type="redirectAction">
+					<param name="actionName">demo1Action</param>
+                    <param name="namespace">/</param>
+				</result>
+			</action>
+			<action name="demo5Action" class="com.heima.a_result.Demo5Action" method="hello">
+				<result name="success" type="dispatcher">/hello.jsp</result>
+			</action>
+			
+				<action name="text" class="com.heima.test.DemoAction" method="text">
+					<result name="hh">/hello.jsp</result>
+				</action>
+		
+		</package>
+		
+        <!--  <result type="chain">
+             
+         </result> -->
+<!--          <include file="com/heima/web/action/struts.xml"></include>
+ -->         <include file="com/heima/b_api/struts.xml"></include>
+         <include file="com/heima/c_parma/struts.xml"></include>
+	</struts>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns="http://www.springframework.org/schema/beans"  
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd ">
+	  <!-- 创建dao层的对象 -->
+	  <bean class="com.heima.dao.imple.CustomerdaoImple" name="Customerdao"></bean>
+	  <bean class="com.heima.dao.imple.LinkmandaoImple" name="Linkmandao"></bean>
+	  <bean class="com.heima.dao.imple.UserdaoImple" name="Userdao"></bean>
+	  
+	  <!-- 创建service对象，并且其中含有dao  然后使用set的方法注入 -->
+	    <bean name="customerService" class="com.heima.service.imple.CustomerserviceImple">
+	    	<property name="customerdao" ref="Customerdao"></property>
+	    </bean>
+	    <bean name="linkmanService" class="com.heima.service.imple.LinkmanserviceImple">
+	    	<property name="linkmandao" ref="Linkmandao"></property>
+	    </bean>
+	      <bean name="userService" class="com.heima.service.imple.UserserviceImple">
+	     	<property name="userdao" ref="Userdao"></property>
+	     </bean>
+	    
+</beans>

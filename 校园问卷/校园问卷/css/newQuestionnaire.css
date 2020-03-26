@@ -1,0 +1,542 @@
+/*-------- ------   -----------   头部导航栏部  -----  -----分-----*/
+html,
+body{
+    height: 100%;
+}
+body{
+    background-color: rgba(249, 249, 249, 0.27);
+}
+/*黑色透明背景--模态框*/
+body .blackBg{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.31);
+    z-index: 998;
+}
+ul{
+    list-style: none;
+}
+/*搜索框部分*/
+
+/*--------------------------------------中间主体部分--------------------------*/
+/*------left和 right 部分------*/
+/*left和right的公共样式*/
+.left,
+.right{
+    position: fixed;
+    top: 0;
+    width: auto;
+    height: 100%;
+    background-color:#fafafa;
+    z-index: 999;
+}
+.left{
+    left: 0;
+}
+.right{
+    right: 0;
+}
+/*left和right 左右方向的公共样式*/
+.left > div,
+.right > div{
+    display: none;
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    font-size: 21px;
+    line-height: 40px;
+    text-align: left;
+    background-color: rgba(29, 29, 29, 0.22);
+    top: 50%;
+}
+.left > div{
+    right: 0;
+    transform: translate(100%,-50%);
+}
+.right > div{
+    left: 0;
+    transform: translate(-100%,-50%);
+}
+.left > div:hover,
+.right > div:hover{
+    cursor: pointer;
+    background-color: rgba(29, 29, 29, 0.5);
+}
+/*left和right中内容的公共样式*/
+.left ul,
+.right ul{
+    width: 166px;
+    height: auto;
+    padding:15px 18px 0 18px;
+}
+.left ul li,
+.right ul li{
+    position: relative;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    line-height: 30px;
+    font-size: 15px;
+    padding: 0 10px;
+    margin: 14px 0;
+    border: 1px solid #cccccc;
+}
+.left ul li:hover,
+.right ul .answerClass:hover{
+    cursor: pointer;
+    border: 1px solid dodgerblue;
+    color: dodgerblue;
+}
+.left ul li span{
+    letter-spacing: 7px;
+    padding-left: 15px;
+}
+.right ul li span{
+    letter-spacing: 5px;
+    padding-left: 7px;
+}
+.right ul li{
+    text-align: center;
+}
+/*-----right中的模态框部分-------*/
+/*modal部分-------答题班级部分*/
+.modal-body{
+    padding: 15px 0 0 0;
+}
+.modal .modal-body .kindname{
+    margin-bottom: 20px;
+}
+.modal .modal-body .kindname>div{
+    margin-top: 15px;
+    padding: 0 15px;
+    height: 30px;
+    /*border: 1px solid #cccccc;*/
+}
+.modal .modal-body .kindname .name-item{
+    width: 100%;
+    height: 100%;
+    line-height: 28px;
+    text-align: center;
+    border:1px solid #cccccc;
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;: ;
+}
+.modal .modal-body .kindname .name-item:hover{
+    cursor: pointer;
+    -webkit-box-shadow: 1px 1px 2px 2px rgba(204, 204, 204, 0.44);
+    -moz-box-shadow: 1px 1px 2px 2px rgba(204, 204, 204, 0.44);
+    box-shadow: 1px 1px 2px 2px rgba(204, 204, 204, 0.44);
+}
+/*modal中的导航栏部分*/
+.nav{
+    width: 70%;
+    margin: 20px auto;
+}
+.nav form{
+    position: relative;
+}
+.nav form .glyphicon-search{
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    font-size: 17px;
+    color: #bbbbbb;
+}
+/*modal---预览部分--------------*/
+#preModal .modal-body .hiddenFrame{
+    position: absolute;
+    /*background-color: #cccccc;*/
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+}
+/*-----------------------问卷部分---------------------*/
+.main{
+    height: 100%;
+    margin: 0 170px;
+    padding: 0 10px 0 10px;
+}
+/*  -------------  头部 问卷类型选择 部分 -----------   */
+/*   ------------ --主体内容部分  --------------        */
+.topWrap{
+    width: 100%;
+    height: 40px;
+    padding-top: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.topWrap .slider{
+    height: auto;
+}
+.topWrap .slider > div{
+    display: inline-block;
+    text-align: center;
+    border:1px solid #cccccc;
+    padding: 2px 4px;
+    line-height: 20px;
+    cursor: pointer;
+}
+.topWrap .slider > div.current{
+    background-color: #dedede;
+    border: 1.7px  #cccccc;
+    border-style: outset;
+    /*box-shadow: 1px 1px 3px rgba(34, 25, 25, 0.2);*/
+}
+/*------中间主体部分---------*/
+.bodyWrap{
+    padding: auto 15px;
+    /*background-color: white;*/
+}
+/*----------------公共样式-----------*/
+.bodyWrap .editTitleWrap,
+.bodyWrap .select,
+.bodyWrap .multiSelect,
+.bodyWrap .fillBlanks,
+.bodyWrap .satisfyDegree,
+.bodyWrap .unedited{
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 2px solid white;
+    -webkit-box-shadow:2px 2px 3px 3px #cccccc;
+    -moz-box-shadow: 2px 2px 3px 3px #cccccc;
+    box-shadow: 2px 2px 3px 3px #cccccc;
+}
+/*editTitleWrap部分重写*/
+.bodyWrap .editTitleWrap{
+    margin-top: 0;
+}
+/*未编辑区域部分*/
+.bodyWrap .unedited{
+    display: none;
+    height: 400px;
+    text-align: center;
+    font-size: 25px;
+    line-height: 350px;
+    background-color: #f3f5f6;
+    border: 1px dashed rgba(0, 0, 255, 0.57);
+    -webkit-box-shadow: 2px 2px 3px 3px #cccccc;
+    -moz-box-shadow: 2px 2px 3px 3px #cccccc;
+    box-shadow: 2px 2px 3px 3px #cccccc;
+}
+/*-----------编辑标题内容框------------*/
+.bodyWrap .editTitleWrap .editHead,
+.bodyWrap .editTitleWrap .welcomeWord{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+.bodyWrap .editTitleWrap .editHead h4{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding:5px 0 5px 10px;
+    font-size: 23px;
+    outline: none;
+    border: 1px dashed white;
+}
+.bodyWrap .editTitleWrap .welcomeWord div{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:5px 0 5px 10px ;
+    font-size: 17px;
+    font-weight: 500;
+    outline: none;
+    border: 1px dashed white;
+}
+.bodyWrap .editTitleWrap .editHead h4:hover,
+.bodyWrap .editTitleWrap .welcomeWord div:hover{
+    border-color:#cccccc ;
+}
+/*-------------编辑单选 和 多选 和 填空-------------------*/
+/*除问卷标题外的整体公共样式*/
+.bodyWrap .select,
+.bodyWrap .multiSelect,
+.bodyWrap .fillBlanks,
+.bodyWrap .satisfyDegree{
+    padding-left: 15px;
+}
+/*填空整体样式*/
+.bodyWrap .fillBlanks,
+.bodyWrap .satisfyDegree{
+    padding-bottom: 20px;
+}
+/*标题公共样式*/
+.bodyWrap .select .selectTitle,
+.bodyWrap .multiSelect .multiSelectTitle,
+.bodyWrap .fillBlanks .fillBlanksTitle,
+.bodyWrap .satisfyDegree .satisfyTitle{
+    position: relative;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 10px 15px 7px 15px;
+}
+.bodyWrap .select .selectTitle .optionOrder,
+.bodyWrap .multiSelect .multiSelectTitle .optionOrder,
+.bodyWrap .fillBlanks .fillBlanksTitle .optionOrder,
+.bodyWrap .satisfyDegree .satisfyTitle .optionOrder{
+    font-size: 19px;
+    position: absolute;
+    left: 11px;
+    top: 19.4px;
+}
+.bodyWrap .select .selectTitle .titleContent,
+.bodyWrap .multiSelect .multiSelectTitle .titleContent,
+.bodyWrap .fillBlanks .fillBlanksTitle .titleContent,
+.bodyWrap .satisfyDegree .satisfyTitle .titleContent{
+    outline-color: white;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+    margin:0 0 0 23px;
+    width: 80%;
+    border: 1px dashed white;
+}
+
+.bodyWrap .select .selectTitle .titleContent:hover,
+.bodyWrap .multiSelect .multiSelectTitle .titleContent:hover,
+.bodyWrap .fillBlanks .fillBlanksTitle .titleContent:hover,
+.bodyWrap .satisfyDegree .satisfyTitle .titleContent:hover{
+    border-color: #bbbbbb;
+}
+/*删除图标的样式*/
+.bodyWrap .select .selectTitle .delete,
+.bodyWrap .multiSelect .multiSelectTitle .delete,
+.bodyWrap .fillBlanks .fillBlanksTitle .delete,
+.bodyWrap .satisfyDegree .satisfyTitle .delete{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    display: none;
+    font-size: 23px;
+    line-height: 44px;
+}
+/*拖拽*/
+.bodyWrap .select .selectTitle .drag,
+.bodyWrap .multiSelect .multiSelectTitle .drag,
+.bodyWrap .fillBlanks .fillBlanksTitle .drag,
+.bodyWrap .satisfyDegree .satisfyTitle .drag{
+    position: absolute;
+    top: 10px;
+    right: 43px;
+    display: none;
+    font-size: 19px;
+    line-height: 44px;
+}
+.bodyWrap .select:hover .selectTitle .delete,
+.bodyWrap .multiSelect:hover .multiSelectTitle .delete,
+.bodyWrap .fillBlanks:hover .fillBlanksTitle .delete,
+.bodyWrap .satisfyDegree:hover .satisfyTitle .delete,
+.bodyWrap .select:hover .selectTitle .drag,
+.bodyWrap .multiSelect:hover .multiSelectTitle .drag,
+.bodyWrap .fillBlanks:hover .fillBlanksTitle .drag,
+.bodyWrap .satisfyDegree:hover .satisfyTitle .drag{
+    display: inline;
+    cursor: pointer;
+}
+/*所有的可编辑的样式*/
+[contenteditable*=true]{
+    word-wrap:break-word;
+    text-overflow : clip;
+}
+/*编辑单选项 和 多选项*/
+.bodyWrap .select .options,
+.bodyWrap .multiSelect .options{
+    font-size: 15px;
+    font-weight: 400;
+    color: #676767;
+    margin: 0;
+}
+/*-------编辑单项和多项的设置-------*/
+.bodyWrap .select .options li,
+.bodyWrap .multiSelect .options li{
+    position: relative;
+    margin-bottom: 6px;
+    padding-left: 16px;
+    width: 70%;
+}
+.bodyWrap .select .options li:last-child,
+.bodyWrap .multiSelect .options li:last-child{
+    margin-bottom: 20px;
+}
+/*其他 所在的li的设置*/
+.bodyWrap .select .options .qita,
+.bodyWrap .multiSelect .options .qita{
+    padding-left: 55px;
+    /*height: 29.8px;*/
+}
+/*按钮的样式*/
+.bodyWrap .select .options li .icon_select,
+.bodyWrap .multiSelect .options li .icon_multiSelect{
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 7.409px;
+    left: -2px;
+    border: 1px solid #aaaaaa;
+}
+.bodyWrap .select .options li .icon_select{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.bodyWrap .select .options li .word,
+.bodyWrap .multiSelect .options li .word{
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:4px 0 4px 6px;
+    line-height: 22.4px;
+    font-size: 15px;
+    border: 1px dashed white;
+    outline-color: white;
+}
+.bodyWrap .select .options li .qitaWord,
+.bodyWrap .multiSelect .options li .qitaWord{
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:4px 0 0 0;
+    line-height: 25.4px;
+    font-size: 15px;
+    /*border-bottom: 1px solid #cccccc;*/
+    /*border: none;*/
+    outline-color: white;
+    height: 28px;
+}
+/*选项内容*/
+.bodyWrap .select .options li .word:hover,
+.bodyWrap .multiSelect .options li .word:hover{
+    display: block;
+   border-color: #bbbbbb;
+}
+/*单选或多选里单个删除*/
+.bodyWrap .select .options li .singleDeletion,
+.bodyWrap .multiSelect .options li .singleDeletion{
+    display: none;
+    position: absolute;
+    font-size: 24px;
+    color:#bbbbbb;
+    padding-left: 5px;
+    width: 27px;
+    border: 0;
+    right: -27px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.bodyWrap .multiSelect .options li .singleDeletion:hover{
+    /*cursor: pointer;*/
+}
+/* ”其他“ 的样式*/
+.bodyWrap .select .options li .explain,
+.bodyWrap .multiSelect .options li .explain{
+    position: absolute;
+    top: 6px;
+    left: 22px;
+}
+/*添加选项和填空部分*/
+.bodyWrap .select .add,
+.bodyWrap .multiSelect .add{
+    width: 100%;
+    height: 40px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /*border: 2px solid white;*/
+    padding:0 0 20px 40px;
+    color: #bbbbbb;
+}
+
+.bodyWrap .select .add span,
+.bodyWrap .multiSelect .add span{
+    padding-right: 40px;
+}
+.bodyWrap .select .add span:hover,
+.bodyWrap .multiSelect .add span:hover{
+    color: rgb(30, 144, 255);
+    cursor: pointer;
+}
+/*编辑填空框*/
+.bodyWrap .fillBlanks .fillContent{
+    outline-color: #cccccc;
+    width: 70%;
+    min-height: 32px;
+    line-height: 20px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+    position: relative;
+    margin-left: 35px;
+    font-size: 14px;
+    padding: 5px 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #484848;
+    overflow: hidden;
+}
+/*-----------满意度--------------*/
+.bodyWrap .satisfyDegree .assess{
+    padding:0 0 0 42px;
+    margin: 0;
+}
+.bodyWrap .satisfyDegree .assess li{
+    display: inline-block;
+    font-size: 25px;
+    color: #828282;
+}
+.bodyWrap .satisfyDegree .assess li:hover{
+    cursor: pointer;
+    color: #646464;
+}
+/*-----------------------底部 发布 与 预览---------------*/
+.main .footer_finish{
+    background-color: #fff;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+}
+.main .footer_finish .finishWord{
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 40px auto ;
+    outline:none;
+
+}
+/*.main .footer_finish .finishWord:hover{
+    border: 1px dashed #cccccc;
+}*/
+.main .footer_finish .btnGroup{
+    text-align: center;
+    margin: 20px auto;
+}

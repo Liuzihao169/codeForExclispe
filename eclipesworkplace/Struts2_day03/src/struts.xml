@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+	<!-- 主配置 -->
+	<!-- 标识方式package  -->
+	<!-- action name="指定一个命名空间访问的时候就  /packagename/actionname" -->
+		
+		<!-- 转发 -->
+		<constant name="struts.devMode" value="true"></constant>
+		<package name="hello" namespace="/"  extends="struts-default" > 
+			<action name="demo4Action" class="cn.heima.action.Demo1action" method="action1">
+				<result name="success" type="dispatcher">
+                  /hello.jsp
+<!--                     <param name="name">tom</param>     
+ -->				</result>
+			</action>
+			<action name="demo2Action" class="cn.heima.action.Demo2action" method="action1">
+				<result name="success" type="redirectAction">
+				<param name="actionName">demo4Action</param>
+                 <param name="namespace">/</param>
+                 <!-- 动态使用ognl取值  这个值是从root中取的-->
+                  <param name="name">${name}</param>                 
+				</result>
+			</action>
+			
+				<action name="text" class="com.heima.test.DemoAction" method="text">
+					<result name="hh">/hello.jsp</result>
+			</action>
+		</package>
+	</struts>

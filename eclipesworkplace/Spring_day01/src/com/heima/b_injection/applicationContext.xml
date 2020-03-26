@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns="http://www.springframework.org/schema/beans"  
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd ">
+	<!-- scope 默认是singleton 单例创建 
+	    prototpe是多例创建
+	 -->
+	<!--  set方式注入 -->
+	<bean class="com.heima.bean.User" name="user" scope="prototype">
+		<property name="name" value="xiaohai"></property>
+		<property name="age" value="18"></property>
+<!-- 		把车子的引用进来用  ref  
+ -->	<property name="car" ref="car"></property>
+	</bean>
+	<!--  把car这个对象创建出来 -->
+	<bean name="car" class="com.heima.bean.Car">
+	<property name="name" value="大众"></property>
+	<property name="color" value="白色"></property>
+	</bean>
+	<!-- =================复杂数据对象的注入，数组=============================== -->
+	<bean class="com.heima.b_injection.CollectionBean" name="collectionBean">
+		<property name="obj">
+			<array>
+				<value>tom</value>
+				<value>jack</value>
+				<ref bean="user"/>
+				<ref bean="car"/>
+			</array>
+		</property>
+		
+		<property name="list">
+        	<list>
+        		<value>jiji</value>
+        		<value>kiki</value>
+        		<ref bean="user"/>
+        	</list>
+		</property>
+		
+		<property name="map" >
+			<map>
+				<entry key="url" value="jdbc:msql:///web"></entry>
+				<entry key="driver" value="com.mysql.jdbc.Driver"></entry>
+			</map>
+		</property>
+		
+		<property name="pro">
+			<props>
+				<prop key=" dsfasd">asdf</prop>
+				<prop key="bbjsk">fasdfasd</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

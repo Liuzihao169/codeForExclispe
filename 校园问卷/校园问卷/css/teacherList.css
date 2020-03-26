@@ -1,0 +1,89 @@
+.container-fluid{
+    position: relative;
+}
+.container-fluid .head{
+    padding-left: 1px;
+    margin-top: 20px;
+    border-bottom: 1px double #cccccc;
+}
+/*导航栏部分*/
+.nav{
+    z-index: 999;
+    margin-top: 45px;
+}
+.nav form{
+    position: relative;
+}
+.nav form .glyphicon-search{
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    font-size: 17px;
+    color: #bbbbbb;
+}
+.nav form .glyphicon-search:hover{
+    cursor: pointer;
+    color: dodgerblue;
+}
+/*班级列表选项部分*/
+.tableWrap .classOptions{
+    padding-left: 0;
+}
+.tableWrap .classOptions ul{
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 5px;
+}
+.tableWrap .classOptions ul li{
+    display: inline-block;
+    text-align: center;
+    border:1px solid #cccccc;
+    padding: 2px 4px;
+    line-height: 20px;
+    cursor: pointer;
+}
+.tableWrap .classOptions ul li:first-child{
+    background-color: rgba(0, 153, 204, 0.45);
+    border: 2px outset rgba(0, 153, 204, 0.45);
+}
+/*表格部分*/
+.tableWrap{
+    z-index: 999;
+    margin-top: 65px;
+    width: 100%;
+    height: auto;
+}
+.tableWrap .classOptions{
+    padding: 0;
+}
+
+.tableWrap table tbody tr,
+.tableWrap table thead tr{
+    height: 40px;
+}
+.tableWrap table thead{
+    /*background-color: rgba(0, 153, 204, 0.74);*/
+}
+.tableWrap table tbody tr td,
+.tableWrap table thead tr th{
+    line-height: 40px;
+    text-align: center;
+}
+.tableWrap table tbody tr .delete{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.tableWrap table tbody tr td:hover .delete{
+    color: dodgerblue;
+}
+/*分页*/
+.paging{
+    position: fixed;
+    height: 42px;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+

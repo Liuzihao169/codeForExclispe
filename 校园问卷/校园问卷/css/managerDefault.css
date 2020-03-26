@@ -1,0 +1,224 @@
+
+/*-----------------------------页面主体部分--------------------------*/
+
+.main{
+    padding: 0 15px;
+    height: 100%;
+    overflow: hidden;
+}
+.main .row{
+
+    height: auto;
+}
+/*新建导入部分*/
+.main .col-md-3{
+    height: 193px;
+    position: relative;
+}
+.main .col-md-3{
+    padding: 20px 20px 23px 10px;
+}
+
+.main .col-md-3 .new a,
+.main .col-md-3 .import a{
+    text-decoration: none;
+}
+.main .col-md-3 .new,
+.main .col-md-3 .import{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 1px 1px 6px 2px #b9b9b9;
+    -moz-box-shadow: 1px 1px 6px 2px #b9b9b9;
+    box-shadow: 1px 1px 6px 2px #b9b9b9;
+}
+.main .empty2{
+    padding-top: 0;
+    padding-right: 0;
+}
+.main .import form{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+.main .import form input{
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+.main .col-md-3 .new:hover,
+.main .col-md-3 .import:hover{
+    border: 2px solid dodgerblue;
+    -webkit-box-shadow:1px 1px 6px 5px #b9b9b9;
+    -moz-box-shadow: 1px 1px 6px 5px #b9b9b9;
+    box-shadow: 1px 1px 6px 5px #b9b9b9;
+}
+.main .col-md-3 .new p,
+.main .col-md-3 .import p{
+    position: absolute;
+    color: #2672FF;
+    font-size: 20px;
+    text-decoration: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+/*我的问卷部分*/
+.main > h4{
+    margin-bottom: 14px;
+    padding-bottom: 4px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border-bottom: 1px solid black;
+}
+.main [class*=col-xs]{
+    height: 173px;
+    padding: 0 25px 18px 25px;
+}
+
+.main .row .col-xs-12 > a{
+    text-decoration: none;
+}
+.main .example{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 1px 1px 6px 2px #b9b9b9;
+    -moz-box-shadow: 1px 1px 6px 2px #b9b9b9;
+    box-shadow: 1px 1px 6px 2px #b9b9b9;
+}
+.main .example:hover{
+    cursor: pointer;
+    border: 2px solid dodgerblue;
+    -webkit-box-shadow:1px 1px 6px 5px #b9b9b9;
+    -moz-box-shadow: 1px 1px 6px 5px #b9b9b9;
+    box-shadow: 1px 1px 6px 5px #b9b9b9;
+}
+.main .example .before{
+    font-size: 15px;
+    background-color: #2672FF;
+    color: white;
+    text-align: center;
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    left: 20px;
+    top: -2px;
+}
+/*子元素P部分*/
+.main .example p{
+    padding-left: 20px;
+    color: #adadad;
+}
+.main .example > .exTitle{
+    padding-top: 38px;
+    font-size: 20px;
+    color: black;
+    width: 100%;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/
+}
+.main .example .exSituation{
+    padding-top: 22px;
+}
+.main .example .exSituation .isRelease{
+    padding-right: 18px;
+}
+.example .exSituation .isRelease span{
+    color: #FFBE3A;
+    display: none;
+}
+.example .exSituation .isRelease .released{
+    color: #68bb47;
+}
+.example .exSituation .isRelease .stopCollect{
+    color: rgb(255, 0, 0);
+}
+/*example 里的图标部分*/
+.main .example .functionIcon{
+    display: none;
+    position:absolute;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 15px;
+    background-color: white;
+    border-left: 1px solid rgba(30, 144, 255, 0.06);
+    border-right: 1px solid rgba(30, 144, 255, 0.06);
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+.main .example .functionIcon a{
+    text-decoration: none;
+}
+/*图标部分*/
+.main .example .delete{
+    display: none;
+    position: absolute;
+    font-size: 26px;
+    right: 5px;
+    top: -4px;
+}
+.main .example .delete:hover{
+    color: dodgerblue;
+}
+.main .example .functionIcon a{
+    font-size: 27px;
+    color: #bbbbbb;
+    letter-spacing: 5px;
+    outline: none;
+}
+.main .example .functionIcon a:hover{
+    /*outline: none;*/
+    color: dodgerblue;
+}
+/*分页部分*/
+
+.main  .paging{
+    position: fixed;
+    bottom: 27px;
+    height: 42px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*模态框部分*/
+.modal{
+    height: 100%;
+}
+.modal .modal-body{
+    position: relative;
+    padding: 0;
+    height: 700px;
+}
+.hiddenFrame{
+    width: 71%;
+    height: 100%;
+    margin-right: 20px;
+    position: absolute;
+    z-index: 999;
+}

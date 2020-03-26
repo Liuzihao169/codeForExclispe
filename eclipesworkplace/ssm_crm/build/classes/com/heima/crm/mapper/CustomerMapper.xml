@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.heima.crm.mapper.CustomerMapper" >
+<!--   public Long fingCustomerCountByQveryVo(QueryVo vo);
+  public List<Customer> fingCustomerListByQveryVo(QueryVo vo); 
+  	private String custName;
+	private String custSource;
+	private String  custIndustry;
+	private String  custLevel;
+  -->
+  
+  <select id="fingCustomerCountByQveryVo" parameterType="QueryVo" resultType="Long">
+  	select count(*) from customer
+  	<where>
+  		<if test="custName!=null and custName!='' ">
+  		cust_name like "%"#{custName}"%"
+  		</if>
+  		<if test="custSource !=null and custSource!=''">
+  		 and cust_source=#{custSource}
+  		</if>
+  		<if test="custIndustry !=null and custIndustry!=''">
+  		and cust_industry=#{custIndustry}
+  		</if>
+  		<if test="custLevel !=null and custLevel!=''">
+  		and cust_level=#{custLevel}
+  		</if>
+  	</where>
+  </select>
+  <select id="fingCustomerListByQveryVo" resultType="Customer" parameterType="QueryVo">
+  	select * from customer
+  	<where>
+  		<if test="custName!=null and custName!='' ">
+  		cust_name like "%"#{custName}"%"
+  		</if>
+  		<if test="custSource !=null and custSource!=''">
+  		 and cust_source=#{custSource}
+  		</if>
+  		<if test="custIndustry !=null and custIndustry!=''">
+  		and cust_industry=#{custIndustry}
+  		</if>
+  		<if test="custLevel !=null and custLevel!=''">
+  		and cust_level=#{custLevel}
+  		</if>
+  	</where>
+  	limit #{start},#{size}
+  </select>
+  
+  
+  <!--   public Customer findCustomerById(Integer id); -->
+  	<select id="findCustomerById" parameterType="Integer" resultType="Customer">
+  		select * from customer where cust_id=#{value}
+  	</select>
+  	
+  	<!-- 更新联系人  public void update(Customer cust);
+  	    private Long cust_id;
+    private String cust_name;
+  
+    private String cust_source;
+    private String cust_industry;
+    private String cust_level;
+    private String cust_linkman;
+    private String cust_phone;">
+  		update customer set cust_name=#{cust_name},cust_industry=#{cust_industry},cust_level=#{cust_level}
+  			,cust_linkman=#{cust_linkman},cust_phone=#{cust_phone},cust_mobile=#{cust_mobile},
+  			cust_zipcode=#{cust_zipcode},cust_address=#{cust_address}  where cust_id=#{cust_id}
+  	</update>
+  	
+  	public void deleteById(Integer id)-->
+  	<delete id="deleteById" parameterType="Integer">
+  		delete from customer 
+  		<where>
+  			cust_id=#{value}
+  		</where>
+  	</delete>
+</mapper>
+

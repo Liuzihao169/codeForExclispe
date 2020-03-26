@@ -1,0 +1,54 @@
+.container{
+    margin-top: 10px;
+}
+
+/*panel-heading部分*/
+.panel-heading{
+}
+.panel-heading h3 {
+    width: 70%;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/
+}
+/*panel-body部分*/
+/*pie部分*/
+.panel-body .pie{
+    width: 100%;
+    height: 400px;
+}
+.panel-body .tableData{
+    width:100%;
+}
+.panel-body .tableData table{
+    width: 85%;
+    margin: 0 auto;
+}
+.panel-body .tableData table tr td,
+.panel-body .tableData table tr th{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+.panel-body .tableData table tr th{
+    background-color: rgba(32, 178, 170, 0.6);
+}
+.panel-body .tableData table tbody tr:last-child{
+    color: #aaaaaa;
+}
+.multiSelect .panel-body table td .iconfont,
+.select .panel-body table td .iconfont{
+    font-size: 18px;
+    color: rgba(30, 144, 255, 0.72);
+    text-decoration: none;
+}
+.multiSelect .panel-body table td .iconfont:hover{
+    color: dodgerblue;
+}
+/*填空里的样式*/
+.fillBlanks .panel-body table td .btn{
+    margin-top: 4px;
+}
+

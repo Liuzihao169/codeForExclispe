@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我的答卷</title>
+    <!--css文件-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/myAnswerSheet.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+        @media screen and (max-width: 992px) {
+            .container{
+                padding: 20px 80px;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .container{
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--       问卷部分---------->
+<div class="container">
+    <!--主体内容外围------------------------------>
+    <div class="bodyWrap">
+        <!--编辑标题内容框------------->
+        <div class="TitleWrap">
+            <!--编辑标题-->
+            <div class="Head">
+                <h4>问卷标题</h4>
+            </div>
+            <!--编辑欢迎语-->
+            <div class="welcomeWord">
+                <div>
+                    感谢您能抽出几分钟时间来参加本次答题，现在我们就马上开始吧！
+                </div>
+            </div>
+        </div>
+        <!--单选（select）题型示例--->
+        <div class="select" currentState="false">
+            <div class="selectTitle" data-questionsId="01">
+                <span class="optionOrder">1</span>
+                <div class="titleContent">请选择一个选项</div>
+            </div>
+            <ul class="options">
+                <li class="commonlyLi" data-optionId="1">
+                    <!--选项图标-->
+                    <div class="icon_select">
+                        <div class="iconfont">&#xe637;</div>
+                    </div>
+                    <!--选型内容-->
+                    <div class="word" data-contentId="01-1">选项1</div>
+                </li>
+                <li class="commonlyLi" data-optionId="2">
+                    <div class="icon_select">
+                        <div class="iconfont">&#xe637;</div>
+                    </div>
+                    <div class="word" data-contentId="01-2">选项2</div>
+                </li>
+                <li class="qita" data-optionId="3">
+                    <div class="icon_select">
+                        <div class="iconfont">&#xe637;</div>
+                    </div>
+                    <div class="explain" style="white-space: nowrap;">其他</div>
+                    <div class="qitaWord noText" contenteditable="true"  data-contentId="01-3"></div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="select" currentState="false">
+            <div class="selectTitle" data-questionsId="02">
+                <span class="optionOrder">2</span>
+                <div class="titleContent">请选择一个选项</div>
+            </div>
+            <ul class="options">
+                <li class="commonlyLi" data-optionId="1">
+                    <!--选项图标-->
+                    <div class="icon_select">
+                        <div class="iconfont">&#xe637;</div>
+                    </div>
+                    <!--选型内容-->
+                    <div class="word" data-contentId="02-1">选项1</div>
+                </li>
+                <li class="commonlyLi" data-optionId="2">
+                    <div class="icon_select">
+                        <div class="iconfont">&#xe637;</div>
+                    </div>
+                    <div class="word" data-contentId="02-2">选项2</div>
+                </li>
+                <li class="qita" data-optionId="3">
+                    <div class="icon_select">
+                        <div class="iconfont">&#xe637;</div>
+                    </div>
+                    <div class="explain">其他</div>
+                    <div class="qitaWord noText" contenteditable="true"  data-contentId="02-3"></div>
+                </li>
+            </ul>
+        </div>
+        <!--多选（multiSelect）-->
+        <div class="multiSelect" currentState="false">
+            <!--标题-->
+            <div class="multiSelectTitle" data-questionsId="001">
+                <span class="optionOrder">3</span>
+                <div class="titleContent">请选择多个选项</div>
+            </div>
+            <!--选项-->
+            <ul class="options">
+                <li class="commonlyLi" data-optionId="1">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state = "false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="word" data-contentId="001-1">选项1</div>
+                </li>
+                <li class="commonlyLi" data-optionId="2">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="word" data-contentId="001-2">选项2</div>
+                </li>
+                <li class="commonlyLi" data-optionId="3">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="word" data-contentId="001-3">选项3</div>
+                </li>
+                <li class="commonlyLi" data-optionId="4">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="word" data-contentId="001-4">选项4</div>
+                </li>
+                <li class="commonlyLi" data-optionId="5">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="word" data-contentId="001-5">选项5</div>
+                </li>
+                <li class="qita" data-optionId="6">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="explain">其他</div>
+                    <div class="qitaWord noText" contenteditable="true" data-contentId="001-6"></div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="multiSelect" currentState="false">
+            <!--标题-->
+            <div class="multiSelectTitle" data-questionsId="002">
+                <span class="optionOrder">4</span>
+                <div class="titleContent">请选择多个选项</div>
+            </div>
+            <!--选项-->
+            <ul class="options">
+                <li class="commonlyLi" data-optionId="1">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="word" data-contentId="002-1">选项1</div>
+                </li>
+                <li class="commonlyLi" data-optionId="2">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="word" data-contentId="002-2">选项2</div>
+                </li>
+                <li class="commonlyLi" data-optionId="3">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="word" data-contentId="002-3">选项3</div>
+                </li>
+                <li class="commonlyLi" data-optionId="4">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="word" data-contentId="002-4">选项4</div>
+                </li>
+                <li class="commonlyLi" data-optionId="5">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="word" data-contentId="002-5">选项5</div>
+                </li>
+                <li class="qita" data-optionId="6">
+<!--                    <div class="floatFrame"></div>-->
+                    <div class="icon_multiSelect" state="false">
+                        <div class="iconfont">&#xe694;</div>
+                    </div>
+                    <div class="explain">其他</div>
+                    <div class="qitaWord noText" contenteditable="true" data-contentId="002-6"></div>
+                </li>
+            </ul>
+        </div>
+        <!--填空 （fillBlanks）-->
+        <div class="fillBlanks" currentState="false">
+            <div class="fillBlanksTitle" data-questionsId="0001">
+                <span class="optionOrder">5</span>
+                <div class="titleContent">请填写本项内</div>
+            </div>
+            <div class="fillContent" contenteditable="true"></div>
+        </div>
+        <div class="fillBlanks" currentState="false">
+            <div class="fillBlanksTitle" data-questionsId="0001">
+                <span class="optionOrder">6</span>
+                <div class="titleContent">请填写本项内</div>
+            </div>
+            <div class="fillContent" contenteditable="true"></div>
+        </div>
+        <!------------满意度---------------->
+        <div class="satisfyDegree" currentState="false">
+            <div class="satisfyTitle" data-questionsId="00001">
+                <span class="optionOrder">7</span>
+                <div class="titleContent">请填写本项内</div>
+            </div>
+            <ul class="assess" data-level="3">
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+            </ul>
+        </div>
+
+        <div class="satisfyDegree" currentState="false">
+            <div class="satisfyTitle" data-questionsId="00002">
+                <span class="optionOrder">8</span>
+                <div class="titleContent">请填写本项内</div>
+            </div>
+            <ul class="assess" data-level="5">
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+            </ul>
+        </div>
+    </div>
+    <!--提交-->
+    <div class="submit">
+        <button type="submit" class="btn btn-primary btn-md">提交</button>
+    </div>
+</div>
+<!--js相关文件-->
+<script src="js/jQuery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.js.js"></script>
+<script src="layer/layer.js"></script>
+<script src="js/myAnswerSheet.js"></script>
+<!--<script>
+    var html = $(this).html();
+    if(html){
+        var lineSign = html.indexOf('<div>');
+        if(html.indexOf('<p>') > -1){
+            lineSign = html.indexOf('<p>');
+        }
+        if(lineSign !== 0){
+            if(lineSign > 0){
+                html = html.slice(0,lineSign);
+            }
+            $(this).prepend($('<div></div>',{html:html}));
+        }
+        data.opt.val = [];
+        var h = '',brs = [];
+        $(this).children('div,p').each(function(i,n){
+            h = n.innerHTML;
+            brs = h.split('<br>');
+            if(brs.length > 0){
+                $.each(brs,function(j,m){
+                    data.opt.val.push(m.replaceAll('&nbsp;','\t'));
+                });
+            }else{
+                data.opt.val.push(m.replaceAll('&nbsp;','\t'));
+            }
+        });
+    }
+</script>-->
+</body>
+</html>

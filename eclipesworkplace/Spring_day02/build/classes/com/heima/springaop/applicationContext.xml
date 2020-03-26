@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd ">
+<!-- 指定扫描哪里的注解 -->
+<!-- 配置目标对象 
+     和配置通知对象
+ -->
+ <!-- 会生成代理对象 -->
+	<bean name="serviceimpl" class="com.heima.service.Serviceimple"></bean>
+	<bean name="myadvice" class="com.heima.b_aspect.Advice"></bean>
+<aop:config>
+      <!-- 设置切点 -->
+	<aop:pointcut expression="execution(* com.heima.service.Serviceimple.*(..))" id="pc"/>
+    <!--通知+切点 = 切面-->
+	<aop:aspect ref="myadvice">
+		<aop:before method="before" pointcut-ref="pc"/>
+	</aop:aspect>
+</aop:config>
+
+</beans>

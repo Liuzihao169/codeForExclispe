@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>导入班级</title>
+    <!--css文件-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/checkData.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <!--js相关文件-->
+    <script src="js/jQuery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/checkData.js"></script>
+</head>
+<body>
+   <div class="container">
+       <h3 class="quesTitle text-center" style="position: relative;margin-top: 10px;">
+           <span style="width: 10em;font-size: 24px;font-weight: 600;overflow: hidden;-ms-text-overflow: ellipsis;text-overflow: ellipsis;">活动问卷</span>
+           <button type="button" class="iconfont btn btn-xs btn-primary pull-right" style="position: absolute;bottom: -6px;right: 1px;">&#xe632; 导出</button>
+       </h3>
+       <!--单选部分的图表-->
+       <div class="select panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Q1:性别（单选题）</h3>
+            </div>
+            <div class="panel-body">
+                <!--饼状图 -->
+                <div id="qid" class="pie"></div>
+                <script>
+                        /*单选部分*/
+                        var data = {
+                            textValue:'性别',
+                            account:9,
+                            seriesData: [
+                                {value:10, name:'男'},
+                                {value:3, name:'女'}
+                            ]
+                        };
+                        wrap("qid",data);
+                </script>
+                <!--表格-->
+                <div class="tableData">
+                    <table class="table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>选型（单选题）</th>
+                                <th>回复情况</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <tr>
+                                <td>男</td>
+                                <td>6</td>
+                                <td>66.7%</td>
+                            </tr>
+                            <tr>
+                                <td>女</td>
+                                <td>3</td>
+                                <td>33.3%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>其他(请注明)</span>
+                                    <a href="qitaOptonDetails.html" class="iconfont pull-right"  title="查看详情">&#xe60d;</a>
+                                </td>
+                                <td>4</td>
+                                <td>21.05%</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><span>回答人数:</span><span> 9</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+       <!--多选的图表-->
+       <div class="multiSelect panel panel-info">
+           <div class="panel-heading">
+               <h3 class="panel-title">Q1:请问您是通过的个人过哪种途径知晓此次活动的?（多选题）</h3>
+           </div>
+           <div class="panel-body">
+               <!--饼状图 -->
+               <div id="mid" class="pie"></div>
+               <script>
+                   /*多选数据部分*/
+                   var data = {
+                       textValue:'请问您是通过哪种途径知晓高房请问您是通过哪种途径知晓高房请问您是通过哪种途径知晓高房请问您是通过哪种途径知晓高房',
+                       account:9,
+                       seriesData: [
+                           {value:1, name:'身边的亲友/同事告知'},
+                           {value:4, name:'看到电视广告'},
+                           {value:1, name:'看到微信推送的广告身边的亲友身边的亲友请问您是通过哪种途径知晓高房请问您是通过哪种途径知晓高房请问您是通过哪种途径知晓高房请问您是通过哪种途径知晓高房'},
+                           {value:4, name:'在网上看到广告'},
+                           {value:5, name:'fwofjdsofjfiosd '},
+                           {value:4, name:'其他(请注明)'},
+                       ]
+                   };
+                   axisWrap("mid",data);
+               </script>
+               <!--表格-->
+               <div class="tableData">
+                   <table class="table-bordered table-hover">
+                       <thead>
+                           <tr>
+                               <th>选型（多选题）</th>
+                               <th>回复情况</th>
+                               <th>占比</th>
+                           </tr>
+                       </thead>
+                       <tbody class="">
+                           <tr>
+                               <td>身边的亲友/同事告知</td>
+                               <td>1</td>
+                               <td>5.27%</td>
+                           </tr>
+                           <tr>
+                               <td>看到电视广告</td>
+                               <td>4</td>
+                               <td>21.05%</td>
+                           </tr>
+                           <tr>
+                               <td>看到微信推送的广告</td>
+                               <td>1</td>
+                               <td>5.26%</td>
+                           </tr>
+                           <tr>
+                               <td>在网上看到广告</td>
+                               <td>4</td>
+                               <td>21.05%</td>
+                           </tr>
+                           <tr>
+                               <td>就是逛商场的时候看到</td>
+                               <td>5</td>
+                               <td>26.32%</td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <span>其他(请注明)</span>
+                                   <a href="qitaOptonDetails.html" class="iconfont pull-right"  title="查看详情">&#xe60d;</a>
+                               </td>
+                               <td>4</td>
+                               <td>21.05%</td>
+                           </tr>
+                           <tr>
+                               <td colspan="3"><span>回答人数:</span><span> 9</span></td>
+                           </tr>
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+       </div>
+       <!--满意度图表-->
+       <div class="satisfyDegree panel panel-info">
+           <div class="panel-heading">
+               <h3 class="panel-title">Q1:您对本次活动感觉如何？(量表题)</h3>
+           </div>
+           <div class="panel-body">
+               <!--饼状图 -->
+               <div id="sid" class="pie"></div>
+               <script>
+                   var data = {
+                       textValue:'请问您是通过哪种途径知晓此次活动的?（可多选）',
+                       account:9,
+                       seriesData: [
+                           {value:0, name:'一颗星'},
+                           {value:1, name:"两颗星"},
+                           {value:4, name:"三颗星"},
+                           {value:3, name:"四颗星"},
+                           {value:1, name:"五颗星"}
+                       ]
+                   };
+                   wrap("sid",data);
+               </script>
+               <!--表格-->
+               <div class="tableData">
+                   <table class="table-bordered table-hover">
+                       <thead>
+                       <tr>
+                           <th>选型（量表题）</th>
+                           <th>回复占比</th>
+                           <th>回复情况</th>
+                       </tr>
+                       </thead>
+                       <tbody class="">
+                       <tr>
+                           <td>1</td>
+                           <td>0.00%</td>
+                           <td>0</td>
+                       </tr>
+                       <tr>
+                           <td>2</td>
+                           <td>11.11%</td>
+                           <td>1</td>
+                       </tr>
+                       <tr>
+                           <td>3</td>
+                           <td>44.45%</td>
+                           <td>4</td>
+                       </tr>
+                       <tr>
+                           <td>4</td>
+                           <td>33.33%</td>
+                           <td>3</td>
+                       </tr>
+                       <tr>
+                           <td>5</td>
+                           <td>11.11%</td>
+                           <td>1</td>
+                       </tr>
+                       <tr>
+                           <td colspan="3"><span>回答人数:</span><span> 9</span></td>
+                       </tr>
+                   </table>
+               </div>
+           </div>
+       </div>
+       <!--填空题-->
+       <div class="fillBlanks panel panel-info">
+           <div class="panel-heading">
+               <h3 class="panel-title">Q8:如果您对本次活动还有更多宝贵建议，可以写...(填空题)</h3>
+           </div>
+           <div class="panel-body">
+               <!--表格-->
+               <div class="tableData">
+                   <table class="table-bordered table-hover">
+                       <thead>
+                           <tr>
+                               <th>答案（填空题）</th>
+                           </tr>
+                       </thead>
+                       <tbody class="">
+                           <tr>
+                               <td><span>动如参商</span></td>
+                           </tr>
+                           <tr>
+                               <td><span>额几点哦死时候</span></td>
+                           </tr>
+                           <tr>
+                               <td><span>不上课说说v</span></td>
+                           </tr>
+                           <tr>
+                               <td><span>很好</span></td>
+                           </tr>
+                           <tr>
+                               <td><span>一名</span></td>
+                           </tr>
+                           <tr>
+                               <td><span>我觉得浪费精力</span></td>
+                           </tr>
+                           <tr>
+                               <td><span>我发觉欧式</span></td>
+                           </tr>
+                           <tr>
+                               <td colspan="3">
+                                   <span>回答人数:</span><span> 9</span>
+                                   <a href="checkAll.html" class="btn btn-info btn-xs pull-right" style="text-decoration: none;">查看所有</a>
+                               </td>
+                           </tr>
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+       </div>
+   </div>
+
+</body>
+</html>

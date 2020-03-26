@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新建问卷</title>
+    <!--css文件-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/newQuestionnaire.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+        @media screen and (max-width: 992px){
+
+        }
+        @media screen and (max-width: 768px) {
+            #navbar .logOut .dropdown-menu li:hover a{
+                color: white!important;
+            }
+            .bodyWrap .select .add,
+            .bodyWrap .multiSelect .add,
+            .bodyWrap .fillBlanks .add,
+            .bodyWrap .satisfyDegree .add{
+                width: 100%;
+                padding-left: 0;
+                padding-right: 20px;
+            }
+        }
+        .fd{
+            border-color: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+<!--班级列表的模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!--导航栏部分-->
+                <div class="nav">
+                    <form role="form" class="search">
+                        <input type="text" class="form-control" placeholder="search..">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </form>
+                </div>
+                <!--名称部分-->
+                <div class="kindname clearfix">
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="01" state="false" title="">网络16(本1)班</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="02" state="false" title="">电信16(本1)班电信16(本1)班电信16(本1)班</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="03" state="false" title="">计本16(本1)班</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="04" state="false" title="">通信16(本1)班</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="05"  state="false" title="">网络17(本1)班</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="06"  state="false" title="">网络18(本1)班</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="07"  state="false" title="">网络19(本1)班</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="08"  state="false" title="">网络16(本2)班</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="06"  state="false" title="">网络123(本1)班</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="07"  state="false" title="">网络19(本1)班</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="name-item" data-cid="08"  state="false" title="">网络136(本2)班</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="selectBtn btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--预览的模态框-->
+<div class="modal fade" id="preModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" oncontextmenu="return false;">
+                <!--附着在主体部分上的隐藏框--防止主体部分被点击，保持其只读性-->
+                <div class="hiddenFrame"></div>
+                <!--主体部分-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--背景框-->
+<div class="blackBg"></div>
+<!--------------中间主体部分----------------------------------------->
+<!--fixed固定 侧边选择栏-->
+<!--左边-->
+<div class="left">
+    <div class="glyphicon glyphicon-menu-right"></div>
+    <ul>
+        <li>
+            <i class="iconfont iconiconfontoptionbutton"></i>
+            <span>单选题</span>
+        </li>
+        <li>
+            <i class="iconfont iconxuanze"></i>
+            <span>多选题</span>
+        </li>
+        <li>
+            <i class="iconfont icontiankong2"></i>
+            <span>填空题</span>
+        </li>
+        <li>
+            <i class="iconfont iconmanyidu"></i>
+            <span>满意度</span>
+        </li>
+    </ul>
+</div>
+<!--右边-->
+<div class="right">
+    <div class="glyphicon glyphicon-menu-left"></div>
+    <ul class="AnsClass">
+        <li class="answerClass" data-toggle="modal" data-target="#myModal">
+            <i class="iconfont iconbanjiliebiao" ></i>
+            <span>答题班级</span>
+        </li>
+    </ul>
+    <ul class="allTeacher hidden">
+        <li><span>全体老师</span></li>
+    </ul>
+    <ul class="allTeaAndStu hidden">
+        <li><span>全体师生</span></li>
+    </ul>
+</div>
+<!------------问卷部分---------->
+<div class="main container-fluid">
+    <!--头部  学生/老师 问卷类型选择-------------->
+    <div class="topWrap">
+        <div class="slider text-right">
+            <div class="stuArea current">学生问卷</div><div class="teaArea">老师问卷</div><div class="allPerson">全体师生</div>
+        </div>
+    </div>
+    <!--主体内容外围------------------------------>
+    <div class="bodyWrap">
+        <!--编辑标题内容框------------->
+        <div class="editTitleWrap">
+            <!--编辑标题-->
+            <div class="editHead">
+                <h4 contenteditable="true">问卷标题</h4>
+            </div>
+            <!--编辑欢迎语-->
+            <div class="welcomeWord">
+                <div contenteditable="true">
+                    感谢您能抽出几分钟时间来参加本次答题，现在我们就马上开始吧！
+                </div>
+            </div>
+        </div>
+        <!--空白区域即未编辑状态-->
+        <div class="unedited show">空白区域</div>
+       <!-- &lt;!&ndash;单选（select）题型示例-&ndash;&gt;
+        <div class="select">
+            <div class="selectTitle">
+                <span class="optionOrder">1</span>
+                <div class="titleContent" data-questionsId="01" contenteditable="true">请选择一个选项</div>
+                <span class="delete iconfont pull-right">&#xe68e; </span>
+                <span class="drag iconfont" title="长按可拖动">&#xe62f;</span>
+            </div>
+            <ul class="options">
+               &lt;!&ndash; <li class="commonlyLi">
+                    &lt;!&ndash;选项图标&ndash;&gt;
+                    <div class="icon_select"></div>
+                    <div class="word commonSign" data-item="01" contenteditable="true">选项1</div>
+                    <div class="singleDeletion iconfont iconreduce-circle"></div>
+                </li>
+                <li class="commonlyLi">
+                    <div class="icon_select"></div>
+                    <div class="word commonSign" data-item="01" contenteditable="true">选项2</div>
+                    <div class="singleDeletion iconfont iconreduce-circle"></div>
+                </li>
+                <li class="qita">
+                    <div class="icon_select"></div>
+                    <div class="explain">其他</div>
+                    <div class="qitaWord commonSign" data-item="01" contenteditable="true"></div>
+                    <div class="singleDeletion iconfont iconreduce-circle"></div>
+                </li>&ndash;&gt;
+            </ul>
+            <div class="add">
+                <span class="first iconfont iconhao2 pull-left" onclick=addSelect(this);> 添加单个选项</span>
+                <span class="second iconfont icontianjiaqitaxiang" onclick=addQitaSelect(this);> 添加[其他]项 </span>
+            </div>
+        </div>
+        &lt;!&ndash;多选（multiSelect）&ndash;&gt;
+        <div class="multiSelect">
+            &lt;!&ndash;标题&ndash;&gt;
+            <div class="multiSelectTitle" >
+                <span class="optionOrder">1</span>
+                <div class="titleContent"  data-questionsId="001" contenteditable="true">请选择多个选项</div>
+                <span class="delete iconfont pull-right">&#xe68e; </span>
+                <span class="drag iconfont" title="长按可拖动">&#xe62f;</span>
+            </div>
+            &lt;!&ndash;选项&ndash;&gt;
+            <ul class="options">
+               &lt;!&ndash; <li class="commonlyLi">
+                    <div class="icon_multiSelect"></div>
+                    <div class="word commonSign" data-item="001" contenteditable="true">选项1</div>
+                    <div class="singleDeletion iconfont iconreduce-circle"></div>
+                </li>
+                <li class="commonlyLi">
+                    <div class="icon_multiSelect"></div>
+                    <div class="word commonSign" data-item="001" contenteditable="true">选项2</div>
+                    <div class="singleDeletion iconfont iconreduce-circle"></div>
+                </li>
+                <li class="commonlyLi">
+                    <div class="icon_multiSelect"></div>
+                    <div class="word commonSign" data-item="001" contenteditable="true">选项3</div>
+                    <div class="singleDeletion iconfont iconreduce-circle"></div>
+                </li>
+                <li class="commonlyLi">
+                    <div class="icon_multiSelect"></div>
+                    <div class="word commonSign" data-item="001" contenteditable="true">选项4</div>
+                    <div class="singleDeletion iconfont iconreduce-circle"></div>
+                </li>
+                <li class="commonlyLi">
+                    <div class="icon_multiSelect"></div>
+                    <div class="word commonSign" data-item="001" contenteditable="true">选项5</div>
+                    <div class="singleDeletion iconfont iconreduce-circle"></div>
+                </li>
+                &lt;!&ndash;其他选项部分&ndash;&gt;
+                <li class="qita">
+                    <div class="icon_multiSelect"></div>
+                    <div class="explain">其他</div>
+                    <div class="qitaWord commonSign" data-item="001" contenteditable="true"></div>
+                    <div class="singleDeletion iconfont iconreduce-circle"></div>
+                </li>&ndash;&gt;
+            </ul>
+            <div class="add">
+                <span class="first iconfont iconhao2 pull-left"  onclick=addMultiSelect(this);> 添加单个选项</span>
+                <span class="second iconfont icontianjiaqitaxiang" onclick=addQitaMultiSelect(this);> 添加[其他]项 </span>
+            </div>
+        </div>
+        &lt;!&ndash;填空 （fillBlanks）&ndash;&gt;
+        <div class="fillBlanks">
+            <div class="fillBlanksTitle">
+                <span class="optionOrder">1</span>
+                <div class="titleContent" data-questionsId="0001" contenteditable="true">请填写本项内容</div>
+                <span class="delete iconfont pull-right">&#xe68e; </span>
+                <span class="drag iconfont" title="长按可拖动">&#xe62f;</span>
+            </div>
+            <div class="fillContent" contenteditable="true"></div>
+        </div>
+        &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;满意度&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;
+        <div class="satisfyDegree">
+            <div class="satisfyTitle">
+                <span class="optionOrder">1</span>
+                <div class="titleContent" data-questionsId="00001" contenteditable="true">请您对我们的服务进行评价</div>
+                <span class="delete iconfont pull-right">&#xe68e; </span>
+                <span class="drag iconfont" title="长按可拖动">&#xe62f;</span>
+            </div>
+            <ul class="assess">
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+            </ul>
+        </div>-->
+    </div>
+    <!--底部 预览和发布-->
+    <div class="footer_finish">
+        <div class="finishWord" >您已完成本次问卷，感谢您的支持与帮助</div>
+        <div class="btnGroup center-block">
+            <button type="button" class="preview iconfont iconyulan btn btn-primary" data-toggle="modal" data-target="#preModal"> 预览</button>
+            <button type="button" class="release iconfont iconfabu btn btn-primary"> 发布</button>
+        </div>
+    </div>
+</div>
+<!--js相关文件-->
+<script src="js/jQuery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.js.js"></script>
+<script src="layer/layer.js"></script>
+<script src="js/newQuestionnaire.js"></script>
+<!--关于div可编辑问题的解决（enter键的解决方案）-->
+<script>
+    //输入回车键监听
+    $(function () {
+        $(".word").keydown(function(event){
+            if(event.keyCode==13 || event.charCode == 13){
+                HtmlUtils.insertHtmlToRange($('<br/>')[0], this);
+                return false;
+            }
+        });
+    });
+    //工具类 HtmlUtils方法：
+    var HtmlUtils = {
+        insertHtmlToRange: function (domNode, inputTarget) {
+            if (domNode == null || inputTarget == null) {
+                return;
+            }
+            var sel = null;
+            var rang = null;
+            if (window.getSelection()) {
+                sel = window.getSelection();
+                rang = sel.rangeCount > 0 ? sel.getRangeAt(0) : null;
+                if (rang === null) {
+                    var message = "无法插入内容";
+                    $.tipsWindown({content: 'text:' + message, singleButton: true});
+                    return;
+                }
+                rang.deleteContents();
+                // 如果选择的对象是输入框时执行操作
+                if (sel.focusNode === inputTarget.innerHTML
+                    || sel.focusNode.parentElement === inputTarget
+                    || sel.focusNode === inputTarget) {
+                    rang.insertNode(domNode);
+                } else {
+                    var tipMessage = "无法插入内容，请检查焦点是否在输入框中";
+                    $.tipsWindown({content: 'text:' + tipMessage, singleButton: true});
+                    return;
+                }
+                //光标移动至末尾
+                if (document.implementation && document.implementation.hasFeature && document.implementation.hasFeature("Range", "2.0")) {
+                    var tempRange = document.createRange();
+                    var chatmessage = inputTarget;
+                    var position = rang.endOffset;
+                    tempRange.selectNodeContents(chatmessage);
+                    tempRange.setStart(rang.endContainer, position);
+                    tempRange.setEnd(rang.endContainer, position);
+                    sel.removeAllRanges();
+                    sel.addRange(tempRange);
+                }
+            } else {//ie9 以下版本
+                textRange = document.selection.createRange();
+                if (textRange === null) {
+                    var message = "无法插入内容";
+                    $.tipsWindown({content: 'text:' + message, singleButton: true});
+                    return;
+                }
+                //插入 dom节点
+                textRange.collapse(false);
+                textRange.pasteHTML(domNode.outerHTML);
+                textRange.select();
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+	<!-- 主配置 -->
+	<!-- 标识方式package  -->
+	<!-- action name="指定一个命名空间访问的时候就  /packagename/actionname" -->
+	<constant name="struts.devMode" value="true"></constant>
+		<package name="interceptor" namespace="/" extends="struts-default">
+			<interceptors>
+			<!-- 注册拦截器 -->
+				<interceptor name="myInter" class="com.heima.Actiondemo.Myintercrptor"></interceptor>
+				<!-- 注册拦截器栈 -->
+				<interceptor-stack name="mystack">
+				<!-- 自定义拦截器引入 -->
+					<interceptor-ref name="myInter">
+						<param name="includeMethods">action1,action3</param>
+					</interceptor-ref>
+					<!-- 20默认拦截器引入 -->
+					<interceptor-ref name="defaultStack"></interceptor-ref>
+				</interceptor-stack>
+			</interceptors>
+			<!-- 自己定义默认拦截器栈 -->
+			<default-interceptor-ref name="mystack"></default-interceptor-ref>
+			<action name="demo1action_*" class="com.heima.Actiondemo.Action1demo" method="{1}">
+<!-- 		自己定义哪一个action需要拦截		<interceptor-ref name=""></interceptor-ref>
+ -->				<result name="success">/hello.jsp</result>	
+			</action>
+		</package>
+	</struts>

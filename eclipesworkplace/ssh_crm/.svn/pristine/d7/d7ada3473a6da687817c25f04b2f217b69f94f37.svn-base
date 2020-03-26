@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+	<!-- 第二种整合方案，就是完全把action的创建全部交给spring 容器 -->
+	<struts>
+		<!-- 配置基本的参数 -->
+		<!-- 居然没有屌用 -->
+<!-- 		<constant name="struts.devMode" value="true"></constant> -->
+		<!-- 将action的创建交给spring容器 -->
+		<!-- # struts.objectFactory = spring
+
+### specifies the autoWiring logic when using the SpringObjectFactory.
+### valid values are: name, type, auto, and constructor (name is the default)
+struts.objectFactory.spring.autoWire = name
+		 -->
+		 <!-- 告诉action的创建与销毁全部交给spring容器 -->
+		 <constant name="struts.objectFactory" value="spring"></constant>
+		 
+		<package name="crm" namespace="/" extends="struts-default">
+		<!-- bean配置action填充到 struts当中的class里面 -->
+		<!-- 此刻的action是由spring创建 ，是交给spring管理 -->
+			<global-exception-mappings>
+				<exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
+			</global-exception-mappings>
+			<action name="userAction_*" class="useraction" method="{1}">
+				<result name="success" type="redirect">/index.htm</result>
+				<!-- 注意 要转发expection的错误信息，type一定要是转发dispatcher -->
+				<result name="error" type="dispatcher">/login.jsp</result>
+			</action>
+		<!-- 	//这个action由Spring创建 -->
+			<action name="CusAction_*" class="customeraction" method="{1}">
+				<result name="listcustomer">/jsp/customer/list.jsp</result>
+				
+				<result name="tolist" type="redirectAction">
+					<param name="actionName">CusAction_list</param>
+                    <param name="namespace">/</param>
+				</result>
+				<result name="toedit">/jsp/customer/edit.jsp</result>
+			</action>
+			<action name="Basedict" class="basedictaction">
+			</action>
+			
+		</package>
+	</struts>

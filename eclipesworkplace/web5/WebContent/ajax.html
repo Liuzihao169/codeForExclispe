@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+	function fun1() {
+		$.get(
+				"/web5/jqueryajax",
+				{"name":"zhangshan","age":18},
+				function(data){
+			/* 		用.+字段名称能够直接获得 */
+					alert(data.name);
+				},"json"
+		);
+
+	};
+</script>
+</head>
+<body>
+	<input type="button" value="异步提交" onclick="fun1()">
+</body>
+</html>

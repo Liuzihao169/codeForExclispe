@@ -1,0 +1,132 @@
+.container-fluid{
+    position: relative;
+}
+.container-fluid .head{
+    padding-left: 1px;
+    margin-top: 20px;
+    border-bottom: 1px double #cccccc;
+}
+/*导航栏部分*/
+.nav{
+    z-index: 999;
+    margin-top: 49px;
+}
+.nav form{
+    position: relative;
+}
+.nav form .glyphicon-search{
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    font-size: 17px;
+    color: #bbbbbb;
+}
+.nav form .glyphicon-search:hover{
+    cursor: pointer;
+    color: dodgerblue;
+}
+/*表格部分*/
+.tableWrap{
+    z-index: 999;
+    margin-top: 46px;
+    width: 100%;
+    height: auto;
+}
+/*班级列表选项部分*/
+.tableWrap .classOptions{
+    padding-left: 0;
+}
+.tableWrap .classOptions ul{
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 5px;
+}
+.tableWrap .classOptions ul li{
+    display: inline-block;
+    text-align: center;
+    border:1px solid #cccccc;
+    padding: 2px 4px;
+    line-height: 20px;
+    cursor: pointer;
+}
+.tableWrap .classOptions ul li:first-child{
+    background-color: rgba(0, 153, 204, 0.45);
+    border: 2px outset rgba(0, 153, 204, 0.45);
+}
+/*----班级列表选项部分*/
+.tableWrap .classOptions{
+    padding: 0;
+}
+
+/*-----表格部分----*/
+.tableWrap table tbody tr,
+.tableWrap table thead tr{
+    height: 40px;
+}
+.tableWrap table tbody tr td,
+.tableWrap table thead tr th{
+    line-height: 40px;
+    text-align: center;
+}
+.tableWrap table thead{
+    /*background-color: rgba(0, 153, 204, 0.74);*/
+}
+/*---------modal部分----------*/
+.modal-body{
+    padding: 15px 0 0 0;
+}
+.modal .modal-body .kindname{
+    margin-bottom: 20px;
+}
+.modal .modal-body .kindname>div{
+    margin-top: 15px;
+    padding: 0 15px;
+    height: 100px;
+}
+.modal .modal-body .kindname .card{
+    height: 100%;
+    border:1px solid #cccccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 17px 0 0 13px;
+}
+.modal .modal-body .kindname .card:hover{
+    cursor: pointer;
+    box-shadow: 3px 3px 2px 2px rgba(204, 204, 204, 0.25);
+}
+.modal .modal-body .kindname .card p{   //新添加
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+}
+/*modal中的导航栏部分*/
+.modal-body .nav{
+    width: 70%;
+    margin: 20px auto;
+}
+.modal-body .nav form{
+    position: relative;
+}
+.modal-body .nav form .glyphicon-search{
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    font-size: 17px;
+    color: #bbbbbb;
+}
+.modal-body .nav form .glyphicon-search:hover{
+    cursor: pointer;
+    color: dodgerblue;
+}
+/*分页*/
+  .paging{
+    position: fixed;
+    height: 42px;
+    bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+}
+

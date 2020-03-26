@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.heima.domain">
+	<class name="Role" table="sys_role">
+	<id name="role_id">
+	<!-- 主键的生成策略 -->
+	<generator class="native"></generator>
+	</id>
+	<property name="role_name"></property>
+		<property name="role_memo"></property>
+			<!-- 
+			name:集合名字
+			table:公共表的名字
+			column 别人引用我的外键的名称
+			class 我与谁多对多
+			column  我引用的别人的外键的名称 -->
+				<set name="users" table="sys_user_role" inverse="true">
+					<key column="role_id"></key>
+					<many-to-many class="User" column="user_id"></many-to-many>
+				</set>
+	</class>
+
+</hibernate-mapping>

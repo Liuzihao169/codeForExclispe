@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>导入学生</title>
+    <!--css文件-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/importStudent.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+</head>
+<body>
+  <!--model-->
+   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <!--导航栏部分-->
+                      <div class="nav">
+                          <form role="form" class="search">
+                              <input type="text" class="form-control" placeholder="search..">
+                              <span class="glyphicon glyphicon-search"></span>
+                          </form>
+                      </div>
+                      <!--名称部分-->
+                      <div class="kindname clearfix">
+                          <div class="col-sm-3 col-xs-6">
+                              <div class="name-item" title="">网络16网网络16网络16网络16络16网络16(本1)班</div>
+                          </div>
+                          <div class="col-sm-3 col-xs-6">
+                              <div class="name-item" title="">网络17(本1)班</div>
+                          </div>
+                          <div class="col-sm-3 col-xs-6">
+                              <div class="name-item" title="">网络18(本1)班</div>
+                          </div>
+                          <div class="col-sm-3 col-xs-6">
+                              <div class="name-item" title="">网络19(本1)班</div>
+                          </div>
+                          <div class="col-sm-3 col-xs-6">
+                              <div class="name-item" title="">网络20(本1)班</div>
+                          </div>
+                          <div class="col-sm-3 col-xs-6">
+                              <div class="name-item" title="">网络21(本1)班</div>
+                          </div>
+                          <div class="col-sm-3 col-xs-6">
+                              <div class="name-item" title="">网络22(本1)班</div>
+                          </div>
+                          <div class="col-sm-3 col-xs-6">
+                              <div class="name-item" title="">网络23(本1)班</div>
+                          </div>
+                      </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+                  <button type="button" class="sure btn btn-primary" data-dismiss="modal">确 定</button>
+              </div>
+          </div>
+      </div>
+  </div>
+   <!--主体部分-->
+   <div class="container-fluid">
+    <!--导入部分-->
+     <div class="import panel panel-default">
+        <div class="panel-heading title">导入学生</div>
+        <div class="panel-body importBody col-md-3 col-sm-4 col-xs-7">
+            <!--表单部分-->
+            <form action="" method="post" class="form" onsubmit="return formDefine();">
+                <input type="file" class="file">
+            </form>
+            <p>
+                <span class="glyphicon glyphicon-import"></span>
+                <span>导入学生</span>
+            </p>
+        </div>
+         <span class="pull-right" style="margin:5px 6px 0 0;">
+            <span class="glyphicon glyphicon-arrow-down" style="display:inline-block;
+            vertical-align: middle;"></span><a href="#">下载导入学生表格模板</a>
+        </span>
+     </div>
+    <!--手动添加部分-->
+     <div class="addinfo panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">手动添加</h3>
+        </div>
+        <div class="addinfoBody panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputText" class="col-sm-2 control-label">姓 名</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="inputText" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputNumber" class="col-sm-2 control-label" style="">学 号</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="inputNumber" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputbtn" class="col-sm-2 control-label">班 级</label>
+                    <div class="col-sm-3">
+                        <input type="button" class="form-control btn btn-info" data-toggle="modal"
+                               data-target="#myModal" id="inputbtn" value="点击加入班级">
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="showName" title=""></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <button type="submit" class="btn btn-primary pull-right">添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+     </div>
+   </div>
+  <!--js相关文件-->
+  <script src="js/jQuery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="layer/layer.js"></script>
+  <script src="js/importStudent.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
+
+
+<context:component-scan base-package="com.heima"/>
+<!-- 可以扫描c3p0文件和 扫描注解 -->
+<context:property-placeholder location="classpath:dp.properties"/>
+<!-- 指定扫描哪里的注解 -->
+<!-- 先创建连接池子对象 ，使用配置文件db.properties-->
+	<bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
+		<property name="driverClass" value="${jdbc.driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean> 
+	
+	
+<!-- 配置action -->
+<!-- service对象注入到action当中 -->
+<!-- <bean name="useraction" class="com.heima.a_action.UserAction" scope="prototype">
+<property name="userservice" ref="userservice"></property>
+</bean>
+<bean name="userservice" class="com.heima.service.imple.UserserviceImple">
+     <property name="userdao" ref="userdao"></property>
+</bean> -->
+<!-- 配置service 对象 -->
+
+
+<bean id="customerdao" class="com.heima.dao.impl.CustomerDaoImpl"> 
+	<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+<!--org.springframework.jdbc.datasource.DataSourceTransactionManager  -->
+<!-- 配置核心的事务管理器 -->
+<!-- <bean name="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager "> -->
+	<!-- 事务的管理依赖于session
+	为其注入sessionfactory
+	 --> 
+<!-- 	<property name="sessionFactory" ref="sessionFactory" ></property>
+</bean> -->
+<!-- 配置事务通知 -->
+  <!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">
+  	<tx:attributes>
+  	只对以save开头的方法起作用
+  		<tx:method name="save*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+  		<tx:method name="get*" isolation="DEFAULT" propagation="REQUIRED" read-only="true"/>
+  		<tx:method name="find*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+  	</tx:attributes>
+  </tx:advice> -->
+<!-- 织入通知 -->
+<!-- <aop:config> -->
+	<!-- 配置切点 -->
+	<!-- <aop:pointcut expression="execution(* com.heima.service.imple.*serviceImple.*(..))" id="tspct"/> -->
+	<!-- 配置切面 
+	切点+通知
+	-->
+<!-- 	<aop:advisor advice-ref="txAdvice" pointcut-ref="tspct"/>
+</aop:config> -->
+
+
+
+
+<!-- 配置sessionFactory工厂 -->
+<!-- 第一种方案，还是加载外部的hibernate.xml配置信息 -->
+<!-- <bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+  注入外部xml配置信息
+  <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+  
+</bean> -->
+
+  <!-- 第二种 在spring中配置 -->
+  <!-- 创建sessionFactory工厂  将sessionFactory交给spring产生 
+  用于产生 注意选对型号 是hibernate5-->
+<bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+  <!-- 自己配置hibernate.xml主配置的基本信息 -->
+  <!-- c3p0连接池操作数据库，使用它的连接 要记得导入db.proeries配置文件-->
+  <property name="dataSource" ref="dataSource"></property>
+  <property name="hibernateProperties">
+  	<props >
+  		<!-- 
+                    不需要从hibernate中获得信息了，直接从才c3po中获得连接  		
+  		<prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+  		<prop key="hibernate.connection.url">jdbc:mysql:///crm32</prop>
+  		<prop key="hibernate.connection.username">root</prop>
+  		<prop key="hibernate.connection.password">root</prop> -->
+  	
+	  	<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+  		<prop key="hibernate.show_sql">true</prop>
+  		<prop key="hibernate.format_sql">true</prop>
+  		<prop key="hibernate.hbm2ddl.auto">update</prop>
+  	</props>
+  </property>
+       <!-- 引入orm源数据  指定对应的包-->
+       <property name="mappingDirectoryLocations" value="classpath:com/heima/entity"></property>
+</bean>
+</beans>

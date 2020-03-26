@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+	<!-- 第二种整合方案，就是完全把action的创建全部交给spring 容器 -->
+	<struts>
+		<!-- 配置基本的参数 -->
+		<!-- 居然没有屌用 -->
+<!-- 		<constant name="struts.devMode" value="true"></constant> -->
+		<!-- 将action的创建交给spring容器 -->
+		<!-- # struts.objectFactory = spring
+
+### specifies the autoWiring logic when using the SpringObjectFactory.
+### valid values are: name, type, auto, and constructor (name is the default)
+struts.objectFactory.spring.autoWire = name
+		 -->
+		 <!-- 告诉action的创建与销毁全部交给spring容器 -->
+		 <constant name="struts.objectFactory" value="spring"></constant>
+		 
+		<package name="crm" namespace="/" extends="struts-default">
+		
+		
+		<!-- 配置拦截器 -->
+		<interceptors>
+			<!-- 注册拦截器 -->
+			<interceptor name="logininception" class="com.heima.inceptor.Logininceptor"></interceptor>
+			<interceptor-stack name="mystack">
+				<interceptor-ref name="logininception">
+				<!-- 		<param name="excludeMethods">login</param> -->
+					<param name="excludeMethods">login,regist,execute</param>
+				</interceptor-ref>
+				<!-- 引入默认的20个拦截器 -->
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="mystack"></default-interceptor-ref>
+		<!-- bean配置action填充到 struts当中的class里面 -->
+		<!-- 此刻的action是由spring创建 ，是交给spring管理 -->
+			<global-results>
+				<result name="tologin" type="redirect">/login.jsp</result>
+			</global-results>
+			<global-exception-mappings>
+				<exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
+			</global-exception-mappings>
+			<action name="userAction_*" class="useraction" method="{1}">
+				<result name="success" type="redirect">/index.htm</result>
+				<!-- 注意 要转发expection的错误信息，type一定要是转发dispatcher -->
+				<result name="error" type="dispatcher">/login.jsp</result>
+				<result name="login" type="redirect">/login.jsp</result>
+				<result name="regist">/regist.jsp</result>
+			</action>
+		<!-- 	//这个action由Spring创建 -->
+			<action name="CusAction_*" class="customeraction" method="{1}">
+				<result name="listcustomer">/jsp/customer/list.jsp</result>
+				
+				<result name="tolist" type="redirectAction">
+					<param name="actionName">CusAction_list</param>
+                    <param name="namespace">/</param>
+				</result>
+				<result name="toedit">/jsp/customer/edit.jsp</result>
+					<result name="industyCount">/jsp/customer/industyCount.jsp</result>
+			</action>
+			<action name="Basedict" class="basedictaction">
+			</action>
+			
+			<action name="LinkmanAction_*" class="linkmanaction" method="{1}">
+			 <result name="listlinkman">/jsp/linkman/list.jsp</result>
+			 <result name="error">/error.jsp</result>
+					<result name="tolinkmanlist" type="redirectAction">
+						<param name="actionName">LinkmanAction_list</param>
+                    	<param name="namespace">/</param>
+				   </result>
+			<result name="add">/jsp/linkman/add.jsp</result>
+			</action>
+			<action name="SalevisitAction_*" class="salevisitaction" method="{1}">
+				 <result name="error">/error.jsp</result>
+				<result name="tolist" type="redirectAction">
+					<param name="actionName">SalevisitAction_list</param>
+					<param name="namespace">/</param>
+				</result>
+				<result name="list">/jsp/salevisit/list.jsp</result>
+				<result name="toedit">/jsp/salevisit/add.jsp</result>
+			</action>
+		</package>
+	</struts>

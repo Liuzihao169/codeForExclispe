@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间，用于隔离sql，还有一个很重要的作用，后面会讲 -->
+<mapper namespace="com.heima.dao.mapper.UserMapper">
+	<sql id="mysql">
+		select * from user
+	</sql>
+	<select id="findbyid" parameterType="Integer" resultType="com.heima.bean.User">
+		select * from user where id=#{vv}
+	</select>
+	<select id="findbylike" parameterType="Integer" resultType="com.heima.bean.User">
+		select * from user where username like '%${value}%'
+	</select>
+	<insert id="setuser" parameterType="User">
+		insert into user values(#{id},#{username},#{birthday},#{sex},#{address})
+	</insert>
+	
+		
+	<insert id="adduserCallbackId" parameterType="com.heima.bean.User">
+		<selectKey keyProperty="id" resultType="Integer" order="AFTER" >
+			select LAST_INSERT_ID()
+		</selectKey>
+		insert into user values(#{id},#{username},#{birthday},#{sex},#{address})
+	</insert>
+	
+	<update id="updateuser" parameterType="com.heima.bean.User">
+		update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
+	</update>
+	
+	<delete id="deleteuser" parameterType="Integer">
+		delete from user where id=#{vvv}
+	</delete>
+	
+	<select id="findbylikeQueryVo" parameterType="QueryVo" resultType="user">
+		select * from user where username like "%"#{user.username}"%"
+	</select>
+		<!-- select * from user where id in (1,2,3) -->
+	<!-- <select id="findbyIds" parameterType="QueryVo" resultType="user">
+		<include refid="mysql"/>
+		<where>
+			id in 
+			<foreach collection="idsList" item="id" separator="," open="(" close=")">
+				#{id}
+			</foreach>
+		</where>
+	</select> -->
+	
+		<select id="findbyIds" parameterType="Integer" resultType="user">
+		<include refid="mysql"/>
+		<where>
+			id in 
+			<foreach collection="list" item="id" separator="," open="(" close=")">
+				#{id}
+			</foreach>
+		</where>
+	</select>
+	<!-- 是采用 ognl的方式取值 -->
+	<select id="findbySexandUsername" parameterType="User" resultType="User">
+		<include refid="mysql"/>
+		<where>
+		<if test="sex!=null and sex!=''">
+			sex=#{sex}
+		</if>
+		<if test="username!=null and username!=''">
+			and username=#{username}
+		</if>
+		
+		</where>
+		
+	</select>
+	<!-- 	public List <User>findUsers(); -->
+	<!-- 一对一映射关系SELECT o.id ,o.`user_id` ,o.`number`,o.`createtime`,u.`username` FROM orders AS o LEFT JOIN USER AS u ON o.`user_id`=u.`id` -->
+	<!--一对多SELECT o.id ,o.`user_id` ,o.`number`,o.`createtime`,u.`username` FROM orders AS o RIGHT JOIN USER AS u ON o.`user_id`=u.`id` -->
+	<resultMap type="User" id="user">
+		<result column="username" property="username"/>
+		<!-- ofType 表示collection集合当中的每一项的 类型 -->
+		<collection property="orderList" ofType="Orders">
+			<id column="id" property="id"/>
+			<result column="user_id" property="userId"/>
+			<result column="number" property="number"/>
+			<result column="createtime" property="createtime"/>
+			<result column="note" property="note"/>
+		</collection>
+	</resultMap>
+	<select id="findUsers" resultMap="user">
+	SELECT o.id ,o.`user_id` ,o.`number`,
+	o.`createtime`,u.`username` 
+	FROM orders AS o RIGHT JOIN USER AS u 
+	ON o.`user_id`=u.`id`	
+	</select>
+</mapper>

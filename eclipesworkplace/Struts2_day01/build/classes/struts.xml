@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+	<!-- 主配置 -->
+	<!-- 标识方式package  -->
+	<!-- action name="指定一个命名空间访问的时候就  /packagename/actionname" -->
+		<package name="hello" namespace="/" extends="struts-default">
+			<action name="imsad" class="com.heima.struts2_1.helloAction" method="sad">
+				<result name="bb">/hello.jsp</result>	
+			</action>
+		</package>
+		<!-- 导入别action的配置文件 -->
+		<include file="com/heima/web/action/struts.xml"></include>
+		<include file="com/heima/struts2_2/struts.xml"></include>
+	</struts>

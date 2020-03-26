@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理</title>
+    <!--css文件-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/manager.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style>
+        @media screen and (max-width: 992px) {
+
+            /*主体部分main*/
+            .main {
+                overflow: inherit;
+            }
+
+            /*在此种情况下，替换导航栏的位置，让导航栏fixed*/
+            .row .hide-show {
+                display: block;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+
+            /*头部导航栏的设置*/
+            /*  #navbar .navbar-left,
+            #navbar .navbar-right {} */
+
+            #navbar .logOut .dropdown-menu {
+                position: static;
+            }
+
+            #navbar .logOut .dropdown-menu li:hover a {
+                color: white !important;
+            }
+
+            /*侧边导航栏的设置*/
+            .sidebar {
+                height: auto;
+            }
+
+            /*在此种情况下，替换导航栏的位置，让导航栏fixed*/
+            .sidebar {
+                position: static;
+                top: 0;
+                left: 0;
+            }
+
+            /*主体部分main*/
+            .main {
+                overflow: inherit;
+                padding-top: 5px;
+            }
+
+            /* .main .empty{
+                display: none;
+            }*/
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--模态框-->
+    <div class="modal fade" id="changePwModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">修改密码</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="oncePassword">旧密码</label>
+                            <input type="password" class="form-control" id="oncePassword" maxlength="12"
+                                placeholder="旧密码" required pattern="^[0-9A-Za-z]{4,12}$">
+                        </div>
+                        <div class="form-group">
+                            <label for="currentPassword">新密码</label>
+                            <input type="password" class="form-control" id="currentPassword" maxlength="12"
+                                placeholder="新密码" required pattern="^[0-9A-Za-z]{4,12}$">
+                        </div>
+                        <div class="form-group">
+                            <label for="surePassword">确认密码</label>
+                            <input type="password" class="form-control" id="surePassword" maxlength="12"
+                                placeholder="确认密码" required pattern="^[0-9A-Za-z]{4,12}$">
+                        </div>
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--头部导航栏-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!--收缩后的导航栏-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="outline: none;">问卷调查</a>
+            </div>
+            <!--首页，后台管理，搜索框，退出登录-->
+            <div id="navbar" class="navbar-collapse collapse">
+                <!--导航栏左侧部分-->
+                <ul class="nav navbar-nav navbar-left">
+                    <!--首页        -->
+                    <li class="">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-home" aria-hidden="true" title="首页"></span>
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <!--后台管理       -->
+                    <li class="active"><a href="#">后台管理</a></li>
+                </ul>
+                <!--导航栏右侧部分-->
+                <ul class="nav navbar-nav navbar-right">
+                    <!--  搜索框           -->
+                    <li class="sousuo">
+                        <form class="search navbar-form navbar-right">
+                            <input type="text" class="form-control" placeholder="search..">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </form>
+                    </li>
+                    <!--导入学生-->
+                    <li class="importStu">
+                        <a class="" href="importStudent.html">导入学生</a>
+                    </li>
+                    <!--我的问卷-->
+                    <li class="myQuestionnaire">
+                        <a class="" data-src="roadlist.html" href="#" onclick=functionGo()>我的问卷</a>
+                    </li>
+                    <!--退出登录        -->
+                    <li class="logOut">
+                        <!--退出图标-->
+                        <a href="#" class="iconQuit dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="true">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                        <!--下拉菜单-->
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="changePassword" data-toggle="modal" data-target="#changePwModal"
+                                    style="color: #9d9d9d;">修改密码</a></li>
+                            <li><a href="#" class="quit" style="color: #9d9d9d;">退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--中间部分---------------->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- 侧边导航栏部分  ------ -->
+            <nav class="col-md-2 col-sm-3 sidebar">
+                <div class="sidebar-sticky">
+                    <!--导航列表-->
+                    <ul class="nav">
+                        <!--问卷管理部分-->
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                问卷管理
+                                <span class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                            <!--下拉菜单-->
+                            <ul class="dropMenu">
+                                <li onclick='functionGo("managerDefault.html")'><a href="javascript:void(0)">新建问卷</a>
+                                </li>
+                                <li onclick='functionGo("myQuestionnaire.html")'><a href="javascript:void(0)">我的问卷</a>
+                                </li>
+                                <li onclick='functionGo("myQuestionnaire.html")'><a href="javascript:void(0)">回收站</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">班级管理
+                                <span class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                            <!--下拉菜单-->
+                            <ul class="dropMenu">
+                                <li onclick='functionGo("importClass.html")'><a href="javascript:void(0)">导入班级</a></li>
+                                <li onclick='functionGo("classList.html")'><a href="javascript:void(0)">班级列表</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">老师管理
+                                <span class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                            <!--下拉菜单-->
+                            <ul class="dropMenu">
+                                <li onclick='functionGo("importTeacher.html")'><a href="javascript:void(0)">导入老师</a>
+                                </li>
+                                <li onclick='functionGo("teacherList.html")'><a href="javascript:void(0)">老师列表</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">学生管理
+                                <span class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                            <!--下拉菜单-->
+                            <ul class="dropMenu">
+                                <li onclick='functionGo("importStudent.html")'><a href="javascript:void(0)">导入学生</a>
+                                </li>
+                                <li onclick='functionGo("studentList.html")'><a href="javascript:void(0)">学生列表</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--当scream趋于992时替换侧边栏的位置-->
+            <div class="hide-show col-sm-3"></div>
+            <!--页面主体部分------------->
+            <div class="col-sm-9 col-md-10  main">
+                <iframe frameborder="0" class="" id="aa" style="width: 100%;height: 100%;"></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="js/jQuery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/manager.js"></script>
+    <script>
+        function functionGo(obj) {
+            $("iframe").attr("src", obj);
+        }
+        functionGo("managerDefault.html");
+    </script>
+</body>
+
+</html>

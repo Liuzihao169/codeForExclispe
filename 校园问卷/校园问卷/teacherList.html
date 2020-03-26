@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>老师列表</title>
+    <!--css文件-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/teacherList.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="head col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1
+ col-xs-10 col-xs-offset-1 clearfix">
+        <h4>老师列表</h4>
+    </div>
+    <div class="nav col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 clearfix">
+        <form role="form" class="search">
+            <input type="text" class="form-control" placeholder="search..">
+            <span class="glyphicon glyphicon-search"></span>
+        </form>
+    </div>
+    <div class="tableWrap  col-sm-12 col-xs-12 clearfix">
+        <!--批量删除-->
+        <div class="classOptions col-xs-10 col-xs-12 col-sm-offset-1 col-xs-offset-1">
+            <!--批量删除-->
+            <button type="button" class="batchDelete btn btn-sm btn-primary pull-left" title="删除所有选中项"
+                    style="outline-color: #337ab7;margin-bottom: 5px;">批量删除</button>
+        </div>
+        <!--表格-->
+        <form action="" method="post">
+           <table class="table-bordered table-hover col-xs-10 col-xs-12 col-sm-offset-1 col-xs-offset-1">
+            <thead>
+            <tr class="success">
+                <th>
+                    <input type="checkbox" class="choiceAll"/>
+                </th>
+                <th>#</th>
+                <th>名字</th>
+                <th>工号</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody class="tb_choice">
+                <!--<tr>
+                    <td>
+                        <input type="checkbox" value=""/>
+                    </td>
+                    <td>12</td>
+                    <td>小明</td>
+                    <td>1609205043</td>
+                    <td>
+                        <button type="button" data-userid="001" class="delete glyphicon glyphicon-trash"></button>
+                        <input type="hidden" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value=""/>
+                    </td>
+                    <td>12</td>
+                    <td>小明</td>
+                    <td>1609205043</td>
+                    <td>
+                        <button type="button" data-userid="002" class="delete glyphicon glyphicon-trash"></button>
+                        <input type="hidden" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value=""/>
+                    </td>
+                    <td>12</td>
+                    <td>小明</td>
+                    <td>1609205043</td>
+                    <td>
+                        <button type="button" data-userid="003" class="delete glyphicon glyphicon-trash"></button>
+                        <input type="hidden" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value=""/>
+                    </td>
+                    <td>12</td>
+                    <td>小明</td>
+                    <td>1609205043</td>
+                    <td>
+                        <button type="button" data-userid="004" class="delete glyphicon glyphicon-trash"></button>
+                        <input type="hidden" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value=""/>
+                    </td>
+                    <td>12</td>
+                    <td>小明</td>
+                    <td>1609205043</td>
+                    <td>
+                        <button type="button" data-userid="005" class="delete glyphicon glyphicon-trash"></button>
+                        <input type="hidden" value="">
+                    </td>
+                </tr>-->
+            </tbody>
+        </table>
+        </form>
+    </div>
+    <!--分页-->
+    <div class="paging col-xs-12 text-center">
+        <nav aria-label="Page navigation" class="paging">
+            <!--存储当前页码 和 总页码-->
+            <input class="totalPage" type="hidden" value="6">
+            <input class="currentPage" type="hidden" value="1">
+            <!--分页-->
+            <ul class="pagination text-center">
+                <li class="lastPage disabled" title="上一页">
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="nextPage" title="下一页">
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<script src="js/jQuery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--<script src="js/listCommon.js"></script>-->
+<script src="layer/layer.js"></script>
+<script src="js/teacherLIst.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+package com.heima.dao.imple;
+
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+
+import com.heima.dao.Customerdao;
+import com.heima.domain.Customer;
+
+public class CustomerdaoImple extends BaseDaoImple<Customer> implements Customerdao {
+
+	
+}

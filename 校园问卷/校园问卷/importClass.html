@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>导入班级</title>
+    <!--css文件-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/importClass.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+</head>
+<body>
+<!--model部分-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" >
+     <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!--导航栏部分-->
+                <div class="nav">
+                    <form role="form" class="search">
+                        <input type="text" class="form-control" placeholder="search..">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </form>
+                </div>
+                <!--名称部分-->
+                <div class="kindname clearfix">
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="card">
+                            <p><span>姓名:</span><span class="name" title=""> 石敬瑭</span></p>
+                            <p><span>工号:</span><span class="number" title=""> 19578438788</span></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="card">
+                            <p><span>姓名:</span><span class="name" title=""> 柴进</span></p>
+                            <p><span>工号:</span><span class="number" title=""> 18888438788</span></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="card">
+                            <p><span>姓名:</span><span class="name" title=""> 刘武周</span></p>
+                            <p><span>工号:</span><span class="number" title=""> 17778438788</span></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="card">
+                            <p><span>姓名:</span><span class="name" title=""> 郭开</span></p>
+                            <p><span>工号:</span><span class="number" title=""> 16668438788</span></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="card">
+                            <p><span>姓名:</span><span class="name" title=""> 徐达</span></p>
+                            <p><span>工号:</span><span class="number" title=""> 15558438788</span></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="card">
+                            <p><span>姓名:</span><span class="name" title=""> 常遇春</span></p>
+                            <p><span>工号:</span><span class="number" title=""> 14448438788</span></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="card">
+                            <p><span>姓名:</span><span class="name" title=""> 蓝玉</span></p>
+                            <p><span>工号:</span><span class="number" title=""> 13338438788</span></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="card">
+                            <p><span>姓名:</span><span class="name" title=""> Bruce wasdfd</span></p>
+                            <p><span>工号:</span><span class="number" title=""> 12228438788</span></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="card">
+                            <p><span>姓名:</span><span class="name" title=""> 汤和</span></p>
+                            <p><span>工号:</span><span class="number" title=""> 11118438788</span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+                <button type="button" class="sure btn btn-primary" data-dismiss="modal">确 定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主体部分-->
+    <div class="container-fluid">
+    <!--导入部分-->
+       <div class="import panel panel-default">
+        <div class="panel-heading title">导入班级</div>
+        <!--导入部分-->
+        <div class="panel-body importBody col-md-3 col-sm-4 col-xs-7">
+
+            <!--表单部分-->
+            <form action="" method="post" class="form" onsubmit="return formDefine()">
+                <input type="file" class="file">
+            </form>
+            <!--导入名称-->
+            <p>
+                <span class="glyphicon glyphicon-import"></span>
+                <span>导入班级</span>
+            </p>
+        </div>
+           <span class="pull-right" style="margin:5px 6px 0 0;">
+            <span class="glyphicon glyphicon-arrow-down" style="display:inline-block;
+            vertical-align: middle;"></span><a href="#">下载导入班级表格模板</a>
+        </span>
+    </div>
+   <!--手动添加部分-->
+       <div class="addinfo panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">手动添加</h3>
+        </div>
+        <div class="addinfoBody panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputText" class="col-sm-2 control-label" style="letter-spacing: 0.3px">班 级 名 称</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="inputText" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputbtn" class="col-sm-2 control-label">班主任名称</label>
+                    <div class="col-sm-3">
+                        <input type="button" class="form-control btn btn-info" id="inputbtn"
+                               data-toggle="modal" data-target="#myModal" style="outline: none;border: none;" value="点击指定班主任">
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="showName"></div>
+                        <input type="hidden" value="" class="collectNumber">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <button type="submit" class="btn btn-primary pull-right">添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--js相关文件-->
+<script src="js/jQuery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="layer/layer.js"></script>
+<script src="js/importClass.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+<script>
+$(function(){
+	$("#username").blur(function(){
+		var username=$("#username").val();
+		$.post(
+			"/web/checkusername",
+			{"username":username},
+			function(data){
+				$("#checkuser").html(data.folg);
+				/* alert(data.folg); */
+				
+			},
+			  "json"
+		
+		);
+		
+	});
+	
+	
+});
+	function check(){
+		var pass=document.getElementById("pass").value;
+		var pass1=document.getElementById("pass1").value;
+		var elefog=document.getElementById("fog");
+		if(pass!=pass1){
+			elefog.innerHTML="两次密码不相同";
+		}
+		else{
+			elefog.innerHTML="两次密码相同";
+		}
+	}
+	
+
+	window.onload = function(){
+		
+	}
+	
+	function changeImg(obj){
+		obj.src="/webservlet/checkimg?time="+new Date().getTime();
+	}
+
+	
+</script>
+</head>
+<body>
+<h1>欢迎来到注册页面</h1>
+<form action="/web/register" method="post">
+<span id="checkuser"></span><br>
+用户名：<input type="text" name="username" id="username"><br>
+密码：<input type="password" name="password" id="pass"><br>
+确认密码<input type="password" id="pass1"> <input type="button" onclick="check()" value="确认">
+<span id="fog"></span><br>
+请输入邮箱<input type="text" name="emila"><br>
+验证码：<input type="text" name="passcode"><img onclick="changeImg(this)" src="/web/checkimg1"><br/>
+<input type="submit" value="提交">
+</form>
+</body>
+</html>

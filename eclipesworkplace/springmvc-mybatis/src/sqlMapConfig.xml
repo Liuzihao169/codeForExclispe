@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<package name="com.itheima.springmvc"/>
+	</typeAliases>
+	<!-- 开启了自动扫描就不用再次导入包 -->
+<!-- 	<mappers>
+	<package name="com.heima.dao.mapper"/>
+	</mappers> -->
+</configuration>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert titl </title>
+
+<script type="text/javascript">
+	window.onload = function(){
+		
+	}
+	
+	function changeImg(obj){
+		obj.src="/webservlet/checkimg?time="+new Date().getTime();
+	}
+
+</script>
+</head>
+<body>
+   <form action="/webservlet/login" method="post">
+    用户名:<input type="text" name="username"><br/>
+    密码:<input type="password" name="password"><br/>
+   	验证码：<input type="text" name="username"><img onclick="changeImg(this)" src="/webservlet/checkimg"><br/>
+   <input type="submit" value="登录">
+   </form>
+</body>
+</html>

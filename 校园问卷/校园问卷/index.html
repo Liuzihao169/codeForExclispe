@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>校园问卷</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        @media screen and (max-width: 768px){
+            .main .paging{
+              bottom: 10px;
+          }
+        }
+    </style>
+</head>
+<body>
+<!--模态框-->
+<div class="modal fade" id="changePwModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">修改密码</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="oncePassword">旧密码</label>
+                        <input type="password" class="form-control" id="oncePassword"  maxlength="12" placeholder="旧密码" required pattern="^[0-9A-Za-z]{4,12}$">
+                    </div>
+                    <div class="form-group">
+                        <label for="currentPassword">新密码</label>
+                        <input type="password" class="form-control" id="currentPassword" maxlength="12" placeholder="新密码" required pattern="^[0-9A-Za-z]{4,12}$">
+                    </div>
+                    <div class="form-group">
+                        <label for="surePassword">确认密码</label>
+                        <input type="password" class="form-control" id="surePassword" maxlength="12" placeholder="确认密码" required pattern="^[0-9A-Za-z]{4,12}$">
+                    </div>
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--头部导航栏-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <!--收缩后的导航栏-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" style="outline: none;">校园问卷</a>
+        </div>
+        <!--首页，后台管理，搜索框，退出登录-->
+        <div id="navbar" class="navbar-collapse collapse">
+            <!--左侧导航栏部分-->
+            <ul class="nav navbar-nav navbar-left">
+                <!--首页        -->
+                <li class="active">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true" title="首页"></span>
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <!--后台管理       -->
+                <li class=""><a href="#" style="outline: none;">后台管理</a></li>
+            </ul>
+            <!--右侧导航栏部分-->
+            <ul class="nav navbar-nav navbar-right" >
+                <!--  搜索框           -->
+                <li>
+                    <form class="search navbar-form navbar-right" >
+                        <input type="text" class="form-control" placeholder="search..">
+                        <span class="glyphicon glyphicon-search" ></span>
+                    </form>
+                </li>
+                <!--账户号-->
+                <li class="username">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true" ></span> <span class="figure">1609105016</span>
+                </li>
+                <!--退出登录        -->
+                <li class="logOut">
+                    <!--退出图标-->
+                    <a href="#" class="iconQuit dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="true">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true" title="退出登录"></span>
+                    </a>
+                    <!--下拉菜单-->
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="changePassword"  data-toggle="modal" data-target="#changePwModal" style="color: #9d9d9d;">修改密码</a></li>
+                        <li><a href="#" class="quit" style="color: #9d9d9d;">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--我的问卷-->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12  main">
+            <h4 class="sub-header">我的问卷</h4>
+            <div class="row" style="margin-bottom: 25px;">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="example">
+                        <p>示例问卷</p>
+                        <p class="time">时间:</p>
+                        <p>出卷人:</p>
+                      <!--  <p class="answerResult">
+                            <span class="onAnswer text-right show">未答</span>
+                            <span class="answered text-right">已答</span>
+                        </p>-->
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="example">
+                        <p>示例问卷</p>
+                        <p class="time">时间:</p>
+                        <p>出卷人:</p>
+                        <!--<p class="answerResult">
+                            <span class="onAnswer text-right show">未答</span>
+                            <span class="answered text-right">已答</span>
+                        </p>-->
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="example">
+                        <p>示例问卷</p>
+                        <p class="time">时间:</p>
+                        <p>出卷人:</p>
+                        <!--<p class="answerResult">
+                            <span class="onAnswer text-right show">未答</span>
+                            <span class="answered text-right">已答</span>
+                        </p>-->
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="example">
+                        <p>示例问卷</p>
+                        <p class="time">时间:</p>
+                        <p>出卷人:</p>
+                        <!--<p class="answerResult">
+                            <span class="onAnswer text-right show">未答</span>
+                            <span class="answered text-right">已答</span>
+                        </p>-->
+                    </div>
+                </div>
+                <!--<div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="example">
+                        <p>示例问卷</p>
+                        <p class="time">时间:</p>
+                        <p>出卷人:</p>
+                        &lt;!&ndash;<p class="answerResult">
+                            <span class="onAnswer text-right show">未答</span>
+                            <span class="answered text-right">已答</span>
+                        </p>&ndash;&gt;
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="example">
+                        <p>示例问卷</p>
+                        <p class="time">时间:</p>
+                        <p>出卷人:</p>
+                        &lt;!&ndash;<p class="answerResult">
+                            <span class="onAnswer text-right show">未答</span>
+                            <span class="answered text-right">已答</span>
+                        </p>&ndash;&gt;
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="example">
+                        <p>示例问卷</p>
+                        <p class="time">时间:</p>
+                        <p>出卷人:</p>
+                        &lt;!&ndash;<p class="answerResult">
+                            <span class="onAnswer text-right show">未答</span>
+                            <span class="answered text-right">已答</span>
+                        </p>&ndash;&gt;
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="example">
+                        <p>示例问卷</p>
+                        <p class="time">时间:</p>
+                        <p>出卷人:</p>
+                        &lt;!&ndash;<p class="answerResult">
+                            <span class="onAnswer text-right show">未答</span>
+                            <span class="answered text-right">已答</span>
+                        </p>&ndash;&gt;
+                    </div>
+                </div>-->
+            </div>
+            <!--分页部分-->
+            <div class="paging col-xs-12 text-center">
+                <nav aria-label="Page navigation" class="paging">
+                    <!--存储当前页码 和 总页码-->
+                    <input class="totalPage" type="hidden" value="5">
+                    <input class="currentPage" type="hidden" value="1">
+                    <!--分页部分-->
+                    <ul class="pagination text-center">
+                        <li class="lastPage disabled" title="上一页">
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="nextPage" title="下一页">
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jQuery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/listCommon.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

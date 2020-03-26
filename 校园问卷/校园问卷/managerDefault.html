@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理</title>
+    <!--css文件-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/managerDefault.css">
+    <style>
+        @media screen and (max-width: 992px){
+            /*主体部分main*/
+            .main{
+                overflow: inherit;
+            }
+        }
+        @media screen and (max-width: 768px){
+            /*头部导航栏的设置*/
+         /*   #navbar .logOut .dropdown-menu{
+                position: static;
+            }*/
+            #navbar .logOut .dropdown-menu li:hover a{
+                color: white!important;
+            }
+            /*在此种情况下，替换导航栏的位置，让导航栏fixed*/
+            /*主体部分main*/
+            .main{
+                overflow: inherit;
+                padding-top: 5px;
+            }
+            .main .empty1{
+                display: none;
+            }
+            .main .empty2{
+                height: 30px;
+            }
+           /* 分页部分*/
+           /* .paging{
+                display: none;
+            }*/
+        }
+    </style>
+</head>
+<body>
+<!--预览模态框-->
+<div class="modal fade" id="preModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" oncontextmenu="return false;">
+                <!--附着在主体部分上的隐藏框--防止主体部分被点击，保持其只读性-->
+                <div class="hiddenFrame"></div>
+                <!--主体部分-->
+                <iframe  frameborder="0" class="" id="aa" style="width: 100%;height: 100%;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<!--中间部分---------------->
+<div class="container-fluid">
+    <div class="row">
+        <!-- 侧边导航栏部分  ------ -->
+        <!--当scream趋于992时替换侧边栏的位置-->
+        <!--页面主体部分------------->
+        <div class="main">
+            <!--新建和导入部分-->
+            <div class="col-md-3 col-sm-4">
+                <a href="#" onclick=fungoManager("newQuestionnaire.html")>
+                    <div class="new">
+                        <p>
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span>新建</span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <a href="#">
+                    <div class="import">
+                        <!--表单部分-->
+                        <form action="" method="post" class="form" onsubmit="return formDefine();">
+                            <input type="file" class="file">
+                        </form>
+                        <p>
+                            <span class="glyphicon glyphicon-import"></span>
+                            <span>导入</span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="empty1 col-md-3 col-sm-1"></div>
+            <div class="empty2 col-md-3 col-sm-3 ">
+                <span class="pull-right" style="margin:8px 6px 0 0;">
+                 <span class="glyphicon glyphicon-arrow-down" style="display:inline-block;
+                vertical-align: middle;"></span><a href="#">下载导入老师表格模板</a>
+                </span>
+            </div>
+            <!--标题-->
+            <h4 class="sub-header">
+                我的问卷
+            </h4>
+            <!--各个问卷-->
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="example">
+                        <p class="exTitle" title="">示例问卷6fdfdfsfsdfdfsdfsddfsdfsdfdffsdffd</p>
+                        <p class="exTime">时间:</p>
+                        <p class="exSituation">
+                            <span class="data pull-left"><i>0 </i>份数据</span>
+                            <span class="isRelease pull-right">
+                                <span class="unreleased show" value="0">未发布</span>
+                                <span class="released " value="1">已发布</span>
+                                <span class="stopCollect " value="2">已停止收集</span>
+                            </span>
+                        </p>
+                        <div class="before">问卷</div>
+                        <i class="delete iconfont">&#xe696;</i>
+                        <div class="functionIcon">
+                            <a href="#" class="edit iconfont" title="编辑">&#xe608;</a>
+                            <a href="#" class="preview iconfont" data-id="01" data-toggle="modal" data-target="#preModal" title="预览">&#xe609;</a>
+                            <a href="#" class="publish iconfont" title="发布" >&#xe60c;</a>
+                            <a href="#" class="stop iconfont" title="停止收集">&#xe62e;</a>
+                            <a href="checkData.html" class="checkData iconfont" title="查看数据">&#xe607;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="example">
+                        <p class="exTitle" title="">示例问卷6</p>
+                        <p class="exTime">时间:</p>
+                        <p class="exSituation">
+                            <span class="data pull-left"><i>0 </i>份数据</span>
+                            <span class="isRelease pull-right">
+                                <span class="unreleased show" value="0">未发布</span>
+                                <span class="released " value="1">已发布</span>
+                                <span class="stopCollect " value="2">已停止收集</span>
+                            </span>
+                        </p>
+                        <div class="before">问卷</div>
+                        <i class="delete iconfont">&#xe696;</i>
+                        <div class="functionIcon">
+                            <a href="#" class="edit iconfont" title="编辑">&#xe608;</a>
+                            <a href="#" class="preview iconfont" data-id="01" data-toggle="modal" data-target="#preModal" title="预览">&#xe609;</a>
+                            <a href="#" class="publish iconfont" title="发布">&#xe60c;</a>
+                            <a href="#" class="stop iconfont" title="停止收集">&#xe62e;</a>
+                            <a href="checkData.html" class="checkData iconfont" title="查看数据">&#xe607;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                       <div class="example">
+                           <p class="exTitle" title="">示例问卷6</p>
+                           <p class="exTime">时间:</p>
+                           <p class="exSituation">
+                            <span class="data pull-left"><i>0 </i>份数据</span>
+                            <span class="isRelease pull-right">
+                                <span class="unreleased show" value="0">未发布</span>
+                                <span class="released " value="1">已发布</span>
+                                <span class="stopCollect " value="2">已停止收集</span>
+                            </span>
+                        </p>
+                           <div class="before">问卷</div>
+                           <i class="delete iconfont">&#xe696;</i>
+                        <div class="functionIcon">
+                            <a href="#" class="edit iconfont" title="编辑">&#xe608;</a>
+                            <a href="#" class="preview iconfont" data-toggle="modal" data-target="#preModal" title="预览">&#xe609;</a>
+                            <a href="#" class="publish iconfont" title="发布">&#xe60c;</a>
+                            <a href="#" class="stop iconfont" title="停止收集">&#xe62e;</a>
+                            <a href="checkData.html" class="checkData iconfont" title="查看数据">&#xe607;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                       <div class="example">
+                           <p class="exTitle" title="">示例问卷6</p>
+                           <p class="exTime">时间:</p>
+                           <p class="exSituation">
+                            <span class="data pull-left"><i>0 </i>份数据</span>
+                            <span class="isRelease pull-right">
+                                <span class="unreleased show" value="0">未发布</span>
+                                <span class="released " value="1">已发布</span>
+                                <span class="stopCollect " value="2">已停止收集</span>
+                            </span>
+                        </p>
+                           <div class="before">问卷</div>
+                           <i class="delete iconfont">&#xe696;</i>
+                        <div class="functionIcon">
+                            <a href="#" class="edit iconfont" title="编辑">&#xe608;</a>
+                            <a href="#" class="preview iconfont" data-toggle="modal" data-target="#preModal" title="预览">&#xe609;</a>
+                            <a href="#" class="publish iconfont" title="发布">&#xe60c;</a>
+                            <a href="#" class="stop iconfont" title="停止收集">&#xe62e;</a>
+                            <a href="checkData.html" class="checkData iconfont" title="查看数据">&#xe607;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                       <div class="example">
+                           <p class="exTitle" title="">示例问卷6</p>
+                           <p class="exTime">时间:</p>
+                           <p class="exSituation">
+                            <span class="data pull-left"><i>0 </i>份数据</span>
+                            <span class="isRelease pull-right">
+                                <span class="unreleased show" value="0">未发布</span>
+                                <span class="released " value="1">已发布</span>
+                                <span class="stopCollect " value="2">已停止收集</span>
+                            </span>
+                        </p>
+                           <div class="before">问卷</div>
+                           <i class="delete iconfont">&#xe696;</i>
+                        <div class="functionIcon">
+                            <a href="#" class="edit iconfont" title="编辑" >&#xe608;</a>
+                            <a href="#" class="preview iconfont" data-toggle="modal" data-target="#preModal" title="预览">&#xe609;</a>
+                            <a href="#" class="publish iconfont" title="发布">&#xe60c;</a>
+                            <a href="#" class="stop iconfont" title="停止收集">&#xe62e;</a>
+                            <a href="checkData.html" class="checkData iconfont" title="查看数据">&#xe607;</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                       <div class="example">
+                           <p class="exTitle" title="">示例问卷6</p>
+                           <p class="exTime">时间:</p>
+                           <p class="exSituation">
+                            <span class="data pull-left"><i>0 </i>份数据</span>
+                            <span class="isRelease pull-right">
+                                <span class="unreleased show" value="0">未发布</span>
+                                <span class="released " value="1">已发布</span>
+                                <span class="stopCollect " value="2">已停止收集</span>
+                            </span>
+                        </p>
+                           <div class="before">问卷</div>
+                           <i class="delete iconfont">&#xe696;</i>
+                        <div class="functionIcon">
+                            <a href="#" class="edit iconfont" title="编辑">&#xe608;</a>
+                            <a href="#" class="preview iconfont" data-toggle="modal" data-target="#preModal" title="预览">&#xe609;</a>
+                            <a href="#" class="publish iconfont" title="发布">&#xe60c;</a>
+                            <a href="#" class="stop iconfont" title="停止收集">&#xe62e;</a>
+                            <a href="checkData.html" class="checkData iconfont" title="查看数据">&#xe607;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                       <div class="example">
+                           <p class="exTitle" title="">示例问卷6</p>
+                           <p class="exTime">时间:</p>
+                           <p class="exSituation">
+                            <span class="data pull-left"><i>0 </i>份数据</span>
+                            <span class="isRelease pull-right">
+                                <span class="unreleased show" value="0">未发布</span>
+                                <span class="released " value="1">已发布</span>
+                                <span class="stopCollect " value="2">已停止收集</span>
+                            </span>
+                        </p>
+                           <div class="before">问卷</div>
+                           <i class="delete iconfont">&#xe696;</i>
+                        <div class="functionIcon">
+                            <a href="#" class="edit iconfont" title="编辑" >&#xe608;</a>
+                            <a href="#" class="preview iconfont" data-toggle="modal" data-target="#preModal" title="预览">&#xe609;</a>
+                            <a href="#" class="publish iconfont" title="发布">&#xe60c;</a>
+                            <a href="#" class="stop iconfont" title="停止收集">&#xe62e;</a>
+                            <a href="checkData.html" class="checkData iconfont" title="查看数据">&#xe607;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="example">
+                        <p class="exTitle" title="">示例问卷6</p>
+                        <p class="exTime">时间:</p>
+                        <p class="exSituation">
+                            <span class="data pull-left"><i>0 </i>份数据</span>
+                            <span class="isRelease pull-right">
+                                <span class="unreleased show" value="0">未发布</span>
+                                <span class="released " value="1">已发布</span>
+                                <span class="stopCollect " value="2">已停止收集</span>
+                            </span>
+                        </p>
+                        <div class="before">问卷</div>
+                        <i class="delete iconfont">&#xe696;</i>
+                        <div class="functionIcon">
+                            <a href="#" class="edit iconfont" title="编辑">&#xe608;</a>
+                            <a href="#" class="preview iconfont" data-toggle="modal" data-target="#preModal" title="预览">&#xe609;</a>
+                            <a href="#" class="publish iconfont" title="发布">&#xe60c;</a>
+                            <a href="#" class="stop iconfont" title="停止收集">&#xe62e;</a>
+                            <a href="checkData.html" class="checkData iconfont" title="查看数据">&#xe607;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--分页-->
+            <nav aria-label="Page navigation" class="paging" style="height: 42px;">
+                    <!--存储当前页码 和 总页码-->
+                    <input class="totalPage" type="hidden" value="6">
+                    <input class="currentPage" type="hidden" value="1">
+                    <!--分页-->
+                    <ul class="pagination text-center">
+                        <li class="lastPage disabled" title="上一页">
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="nextPage" title="下一页">
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+        </div>
+    </div>
+</div>
+<!--js文件-->
+<script src="js/jQuery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="layer/layer.js"></script>
+<script src="js/listCommon.js"></script>
+<script src="js/mgDefaultAndMyQues.js"></script>
+<script>
+    /*function fungoManager(obj) {
+       window.location.href=obj;
+    }
+    function functionGo(obj) {
+        $("iframe").attr("src",obj);
+    }
+    functionGo("myAnswerSheet.html");*/
+</script>
+</body>
+</html>

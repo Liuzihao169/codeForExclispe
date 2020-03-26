@@ -1,0 +1,260 @@
+/*-------- ------      头部导航栏部    -----分-----*/
+/*问卷调查部分*/
+
+/*首页图标*/
+
+#navbar .navbar-left li:first-child{
+    height: 50px;
+    line-height: 50px;
+}
+#navbar .navbar-left a{
+    line-height: 30px;
+    outline: none;
+}
+/*搜索框部分*/
+#navbar ul .search{
+    position: relative;
+    width: 275px;
+    padding: 0;
+    margin-left:15px;
+    margin-right: 30px;
+}
+#navbar ul .search>input{
+    width: 275px;
+    padding-right: 0;
+}
+#navbar ul .search span{
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
+    top: 10.2px;
+}
+/*搜索--------------*/
+.sousuo .glyphicon-search:hover{
+    cursor: pointer;
+    color: dodgerblue;
+}
+/*后台管理/导入学生/我的问卷--文字居中处理*/
+#navbar .navbar-left li:last-child a,
+#navbar .navbar-right .importStu a,
+#navbar .navbar-right .myQuestionnaire a{
+    outline: none;
+    line-height: 30px;
+}
+/*退出登录部分*/
+#navbar ul .logOut{
+    padding: 5px 1.2px 4px 16px;
+}
+#navbar ul .logOut .iconQuit{
+    padding-left: 0;
+    padding-right: 15px;
+    background-color: transparent;
+}
+   /*设置下拉菜单的样式*/
+#navbar ul .logOut .dropdown-menu{
+    border: 0;
+    padding: 0;
+    margin-top: -1px;
+    background-color: #222222;
+    text-align: center;
+}
+/*-----------侧边导航栏部分-----------*/
+body{
+    background-color: rgba(0, 0, 0, 0.07);
+}
+html,
+body,
+.container-fluid,
+.container-fluid > .row{
+    height: 100%;
+}
+.sidebar{
+    padding: 0;
+    height: 100%;
+    background-color: rgba(8, 8, 8, 0.93);
+}
+.sidebar .nav{
+    height: 100%;
+    padding-top: 50px;
+}
+.sidebar .nav > li{
+    line-height: 35px;
+    cursor: pointer;
+}
+.nav > li > a {
+    outline: none;
+    position:relative;
+    display:block;
+    font-size: 17px;
+    color: #9d9d9d;
+    padding:10px 15px;
+}
+.nav  li > .nav-link:hover{
+    color: white;
+    background-color: #676d7b;
+}
+.nav > li > a:visited{
+    background-color: #393d49;
+}
+/*设置图标*/
+.nav .nav-link span{
+    position: absolute;
+    right: 24px;
+    top: 19.5px;
+}
+/*下拉列表部分*/
+.nav .nav-item > .dropMenu{
+    display: none;
+    list-style: none;
+    padding-left: 0;
+    padding-top: 0;
+    background-color: #282833;
+}
+.nav .nav-item > .dropMenu > li{
+    padding-left: 35px;
+}
+.nav .nav-item > .dropMenu > li a{
+    outline: none;
+    text-decoration: none;
+    color: #9d9d9d;
+}
+.nav .nav-item > .dropMenu > li a:hover{
+    color: white;
+}
+/*伸缩时 显示或隐藏*/
+.row .hide-show{
+    display: none;
+}
+/*-----------------------------页面主体部分--------------------------*/
+.main{
+    padding: 55px 0 0 0;
+    height: 100%;
+    overflow: hidden;
+}
+.main .row{
+    height: auto;
+}
+/*新建导入部分*/
+.main .col-md-3{
+    height: 193px;
+    position: relative;
+}
+.main .col-md-3{
+    padding: 20px 20px 23px 10px;
+}
+
+.main .col-md-3 a,
+.main .col-md-3 a{
+    text-decoration: none;
+}
+.main .col-md-3 .new,
+.main .col-md-3 .import{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 4px;
+    -webkit-box-shadow:1px 1px 6px 2px #b9b9b9;
+    -moz-box-shadow: 1px 1px 6px 2px #b9b9b9;
+    box-shadow: 1px 1px 6px 2px #b9b9b9;
+}
+.main .col-md-3 .new:hover,
+.main .col-md-3 .import:hover{
+    border: 2px solid dodgerblue;
+    -webkit-box-shadow: 1px 1px 6px 5px #b9b9b9;
+    -moz-box-shadow: 1px 1px 6px 5px #b9b9b9;
+    box-shadow: 1px 1px 6px 5px #b9b9b9;
+}
+.main .col-md-3 .new p,
+.main .col-md-3 .import p{
+    position: absolute;
+    color: #2672FF;
+    font-size: 20px;
+    text-decoration: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+/*我的问卷部分*/
+.main > h4{
+    margin-bottom: 14px;
+    padding-bottom: 4px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border-bottom: 1px solid black;
+}
+.main [class*=col-xs]{
+    height: 173px;
+    padding: 0 25px 18px 25px;
+}
+.main .row .col-xs-12 > a{
+    text-decoration: none;
+}
+.main .example{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 4px;
+    -webkit-box-shadow:1px 1px 6px 2px #b9b9b9;
+    -moz-box-shadow: 1px 1px 6px 2px #b9b9b9;
+    box-shadow: 1px 1px 6px 2px #b9b9b9;
+}
+.main .example:hover{
+    cursor: pointer;
+    border: 2px solid dodgerblue;
+    -webkit-box-shadow: 1px 1px 6px 5px #b9b9b9;
+    -moz-box-shadow: 1px 1px 6px 5px #b9b9b9;
+    box-shadow: 1px 1px 6px 5px #b9b9b9;
+}
+.main .example::before{
+    content: "问卷";
+    font-size: 15px;
+    background-color: #2672FF;
+    color: white;
+    text-align: center;
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    left: 20px;
+    top: -2px;
+}
+/*子元素P部分*/
+.main .example p{
+    padding-left: 20px;
+    color: #adadad;
+}
+.main .example > p:nth-child(1){
+    padding-top: 38px;
+    font-size: 20px;
+    color: black;
+}
+.main .example > p:nth-child(3){
+    position: relative;
+    bottom: -23px;
+    margin-bottom: 0;
+}
+.main .example > p:nth-child(3)>.isRelease{
+    position: absolute;
+    right: 18px;
+}
+/*分页部分*/
+.main .row .col-md-12 .paging{
+    position: relative;
+    height: 40px;
+}
+.main .row .text-center ul{
+    position: relative;
+    margin: 0;
+    bottom: -20px;
+}
+
+

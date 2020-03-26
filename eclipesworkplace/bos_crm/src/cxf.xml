@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:jaxws="http://cxf.apache.org/jaxws"
+xmlns:soap="http://cxf.apache.org/bindings/soap"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop" 
+xmlns:tx="http://www.springframework.org/schema/tx" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+					http://www.springframework.org/schema/beans/spring-beans.xsd
+					http://cxf.apache.org/bindings/soap 
+					http://cxf.apache.org/schemas/configuration/soap.xsd
+					http://cxf.apache.org/jaxws 
+					http://cxf.apache.org/schemas/jaxws.xsd
+					http://www.springframework.org/schema/context
+					http://www.springframework.org/schema/context/spring-context-4.2.xsd 
+  					http://www.springframework.org/schema/aop 
+  					http://www.springframework.org/schema/aop/spring-aop-4.2.xsd 
+ 					http://www.springframework.org/schema/tx 
+ 					http://www.springframework.org/schema/tx/spring-tx-4.2.xsd 
+					">
+	<!-- 引入CXF Bean定义如下,早期的版本中使用 -->
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	<!-- 可以扫描c3p0文件和 扫描注解 -->
+   <context:property-placeholder location="classpath:dp.properties"/>
+  <!-- 指定扫描哪里的注解 -->
+   <!-- 先创建连接池子对象 ，使用配置文件db.properties-->
+	<bean class="com.mchange.v2.c3p0.ComboPooledDataSource" name="dataSource">
+		<property name="driverClass" value="${jdbc.driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean> 
+	<!-- 注册事务管理 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>	
+	<!-- 开启注解事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<!-- 配置jdbc模板 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<!-- 配置CustomerService  -->
+	<bean id="customerService" class="com.heima.service.impl.CustomerServiceImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<jaxws:server id="myService"  address="/customer" >
+		<jaxws:serviceBean >
+			<ref bean="customerService"/>
+		</jaxws:serviceBean>
+	</jaxws:server>
+</beans>

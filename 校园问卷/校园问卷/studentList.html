@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>班级列表</title>
+    <!--css文件-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/studentList.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+</head>
+<body>
+<!--主体部分-->
+<div class="container-fluid">
+    <!--标题-->
+    <div class="head col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1
+ col-xs-10 col-xs-offset-1">
+        <h4>学生列表</h4>
+    </div>
+    <!--导航栏-->
+    <div class="nav col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+        <form role="form" class="search">
+            <input type="text" class="form-control" placeholder="search..">
+            <span class="glyphicon glyphicon-search"></span>
+        </form>
+    </div>
+
+    <div class="tableWrap col-sm-12 col-xs-12 clearfix">
+        <!--班级列表-->
+        <div class="classOptions col-xs-10 col-xs-12 col-sm-offset-1 col-xs-offset-1">
+            <ul class="classLis ">
+                <li class="pr currentStyle" data-classId="12">网络15班</li><li class="pr" data-classId="15">网络15班</li><li class="pr" data-classId="16">网络15班</li>
+            </ul>
+            <button type="button" class="batchDelete btn btn-sm btn-primary pull-right" title="删除所有选中项" style="outline-color: #337ab7">批量删除</button>
+        </div>
+        <!--表格-->
+        <form action="" method="post">
+          <table class="table-bordered table-hover col-xs-10 col-xs-12 col-sm-offset-1 col-xs-offset-1">
+           <thead class="success">
+              <tr>
+                  <th>
+                      <input type="checkbox" class="choiceAll"/>
+                  </th>
+                  <th>#</th>
+                  <th>学号</th>
+                  <th>名字</th>
+                  <th>班级</th>
+                  <th>操作</th>
+              </tr>
+           </thead>
+            <tbody class="tb_choice">
+                <tr>
+                    <td>
+                        <input type="checkbox" value=""/>
+                    </td>
+                    <td>12</td>
+                    <td>1609205043</td>
+                    <td>小明</td>
+                    <td class="classNm"><span>网络16班</span></td>
+                    <td>
+                        <button type="button" data-userid="001" class="delete glyphicon glyphicon-trash"></button>
+                        <input type="hidden" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value=""/>
+                    </td>
+                    <td>12</td>
+                    <td>1609205043</td>
+                    <td>小明</td>
+                    <td class="classNm"><span>网络12班</span></td>
+                    <td>
+                        <button type="button" data-userid="002" class="delete glyphicon glyphicon-trash"></button>
+                        <input type="hidden" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value=""/>
+                    </td>
+                    <td>12</td>
+                    <td>1609205043</td>
+                    <td>小明</td>
+                    <td class="classNm"><span>网络17班</span></td>
+                    <td>
+                        <button type="button" data-userid="003" class="delete glyphicon glyphicon-trash"></button>
+                        <input type="hidden" value="">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </form>
+    </div>
+    <!--分页-->
+    <div class="paging col-xs-12 text-center">
+        <nav aria-label="Page navigation" class="paging">
+            <!--存储当前页码 和 总页码-->
+            <input class="totalPage" type="hidden" value="5">
+            <input class="currentPage" type="hidden" value="1">
+            <!--分页部分-->
+            <ul class="pagination text-center">
+                <li class="lastPage disabled" title="上一页">
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="nextPage" title="下一页">
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<script src="js/jQuery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="layer/layer.js"></script>
+<script src="js/studentList.js"></script>
+</body>
+</html>

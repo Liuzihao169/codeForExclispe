@@ -1,0 +1,130 @@
+.container-fluid{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.import{
+    margin-top: 30px;
+    height: 254px;
+}
+ .importBody{
+    position: relative;
+    margin: 26px 0 0 27px;
+    height: 160px;
+    background-color: #fff;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    -webkit-box-shadow:1px 1px 6px 2px #b9b9b9;
+    -moz-box-shadow: 1px 1px 6px 2px #b9b9b9;
+    box-shadow: 1px 1px 6px 2px #b9b9b9;
+}
+ .importBody:hover{
+    cursor: pointer;
+    border: 2px solid dodgerblue;
+    -webkit-box-shadow: 1px 1px 6px 5px #b9b9b9;
+    -moz-box-shadow: 1px 1px 6px 5px #b9b9b9;
+    box-shadow: 1px 1px 6px 5px #b9b9b9;
+}
+ .importBody form{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+ .importBody form input{
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+ .importBody p{
+    position: absolute;
+    color: #2672FF;
+    font-size: 20px;
+    text-decoration: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+/*手动添加的信息*/
+ .addinfo{
+    margin-top: 33px;
+}
+ .panel-body{
+    padding-top: 56px;
+}
+/*表单部分*/
+ .panel-body form .showName{
+    height: 34px;
+    width: 100%;
+    line-height: 34px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    background-color: rgba(222, 222, 222, 0.42);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+     white-space: nowrap;
+     overflow: hidden;
+     -ms-text-overflow: ellipsis;
+     text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+}
+ .panel-body label{
+    padding-right: 2px;
+}
+/*modal部分*/
+.modal-body{
+    padding: 15px 0 0 0;
+}
+.modal .modal-body .kindname{
+    margin-bottom: 20px;
+}
+.modal .modal-body .kindname>div{
+    margin-top: 15px;
+    padding: 0 15px;
+    height: 30px;
+    /*border: 1px solid #cccccc;*/
+}
+.modal .modal-body .kindname .name-item{
+    width: 100%;
+    height: 100%;
+    line-height: 28px;
+    text-align: center;
+    border:1px solid #cccccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+}
+.modal .modal-body .kindname .name-item:hover{
+    cursor: pointer;
+    -webkit-box-shadow:3px 3px 2px 2px rgba(204, 204, 204, 0.25);
+    -moz-box-shadow: 3px 3px 2px 2px rgba(204, 204, 204, 0.25);
+    box-shadow: 3px 3px 2px 2px rgba(204, 204, 204, 0.25);
+}
+
+/*modal中的导航栏部分*/
+.modal-body .nav{
+    width: 70%;
+    margin: 20px auto;
+}
+.modal-body .nav form{
+    position: relative;
+}
+.modal-body .nav form .glyphicon-search{
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    font-size: 17px;
+    color: #bbbbbb;
+}
+
